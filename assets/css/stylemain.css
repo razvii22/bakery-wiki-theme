@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --accent-light: #0044cc; /* fallback or default for light mode */
+    --accent-dark: #6699ff;  /* fallback or default for dark mode */
+    --SBarWidth: 320px;
+    --TBarHeight: 50px;
+    overscroll-behavior: none;
+    --A1: rgb(232, 157, 46);
+    --A2: rgb(232, 192, 46);
+    /* ============================================================================================== */
+    /* DARK MODE */
+    --LDOne: #FFFFFF;
+    --LDTwo: #000000;
+    --Sidebar: #101010;
+    --Content: #201f1f;
+    --TopBar: var(--Content);
+    --TopBarButtons: var(--Sidebar);
+    --Blockquote: #1b1b1b;
+    --BlockquoteD: #191919;
+    --Gradient: var(--Sidebar);
+    --SearchBar: var(--BlockquoteD);
+    --Resultsbox: #151515ea;
+    --ResultsDark: rgba(0, 0, 0, 0.132);
+    --ResultsBorder: var(--Sidebar);
+    --Background: rgb(32, 32, 32);
+    --Text: whitesmoke;
+    --NavButton: rgb(22, 2, 2);
+    --CodeBorder: var(--Highlight);
+    --Highlight: #727272;
+    --Highlight2: #949494;
+    --Highlight3: var(--Text);
+    --SbarBorder: rgb(32, 32, 32);
+    --Shadow: rgba(0, 0, 0, 0.226);
+    --CodeBlock: rgb(7, 8, 46);
+}
+
+[data-theme="light"] {
+    /* ============================================================================================= */
+    /* LIGHT MODE */
+    --Accent: var(--accent-light);
+    --Accent2: var(--accent-dark);
+    --LDOne: #000000;
+    --LDTwo: var(--SearchBar);
+    --Sidebar: var(--Content);
+    --Content: #f5f2f2;
+    --TopBar: var(--Background);
+    --TopBarButtons: var(--Background);
+    --Blockquote: #f5f2f2;
+    --BlockquoteD: #ebebe5;
+    --Gradient: #e1e3d8;
+    --SearchBar: var(--ResultsDark);
+    --Resultsbox: #f1f1f1;
+    --ResultsDark: #f4f4f4;
+    --ResultsBorder: var(--Accent);
+    --Background: rgb(236, 236, 236);
+    --Text: rgb(0, 0, 0);
+    --NavButton: rgb(236, 236, 236);
+    --CodeBorder:var(--Text);
+    --Highlight: #aeaeae;
+    --Highlight2: #ece9e9;
+    --Highlight3: var(--Highlight2);
+    --SbarBorder: rgb(236, 236, 236);
+    --Shadow: rgba(184, 184, 184, 0.094);
+    --CodeBlock: rgb(40, 45, 116);
+    /* ============================================================================================= */
+}
+body{
+    --Accent: var(--accent-dark);
+    --Accent2: var(--accent-light);
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin:0;
+    font-family: "B612 Mono", monospace;
+    font-size: 1.3rem;
+    background-color: var(--Background);
+    color: var(--Text);
+    box-sizing: border-box;
+}
+
+/* ================================================================================================== */
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    background-color: var(--Highlight);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--Text);
+    height: 50px;
+}
+
+/* ================================================================================================== */
+/* HEADINGS */
+
+h1{
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h2{
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h3 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h4 {
+    margin: 0;
+    font-family: "Exo 2";
+    /* width: 100%; */
+}
+
+h5 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h6 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+/* ================================================================================================== */
+/* MISC */
+
+hr {
+    color: var(--Sidebar);
+    border-radius: 2px;
+    border-top: var(--Sidebar) solid 2px;
+    border-bottom: var(--Accent) solid 1px;
+}
+a {
+    color: rgb(232, 157, 46);
+    text-decoration: dotted;
+}
+/* =================================================================================================== */
+/* TABLES */
+
+table, th, td {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+table {
+    display: block;
+    overflow: scroll;
+    clear: both;
+    font-family: "B612 Mono";
+    margin: 1.5rem 0 1.5rem 0;
+    width: 100px;
+    width: calc(100vw - var(--SBarWidth) - 50px);
+}
+td {
+    background-color: var(--Blockquote);
+    padding: 10px;
+    font-style: italic;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    text-align: center;
+}
+th, caption {
+    font-weight: 700;
+    background-color: var(--BlockquoteD);
+    padding: 0.5rem 20px 0.5rem 20px; /*Top Right Bottom Left*/
+    text-align: center;
+}
+
+/* INFO TABLES */
+
+.info td {
+    background-color: var(--Blockquote);
+    padding: 0px;
+    font-style: italic;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    text-align: center;
+}
+
+.info {
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    font-family: "B612 Mono";
+    margin: 0 0 0 0;
+    max-width: 300px;
+    border-spacing: 0;
+    max-width: 320px;
+    background-color: var(--Blockquote);
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    margin: 0 1px 0 1px;
+    padding: 2px;
+    word-break: break-all;
+    overflow: hidden;
+}
+.info img {
+    margin: 0px;
+    max-width: 300px;
+}
+.infowide {
+    grid-column: 1 / span 2;
+    padding: 10px;
+    background-color: var(--BlockquoteD);
+}
+
+/* ================================================================================================== */
+/* BLOCKQUOTES */
+
+blockquote {
+    background-color: var(--Blockquote);
+    font-style: italic;
+    padding: 10px;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+    clear: both;
+}
+
+blockquote[blame]::after {
+    content: "- " attr(blame);
+    color: var(--Accent);
+    margin-left: auto;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+[gradient] {
+    background-color: transparent;
+    padding-right: 150px;
+    border-right: none;
+    background-image: linear-gradient(to right, var(--Gradient), transparent);
+}
+
+/* ================================================================================================= */
+/* NAVIGATION */
+
+nav {
+    max-width: calc(100% - 20px);
+    font-family: "Exo 2";
+    z-index: 3;
+    background-color: var(--TopBar);
+    position: sticky;
+    top: 0;
+    margin-bottom: auto;
+    order: 1;
+    height: var(--TBarHeight);
+    width: 100vw;
+    padding: 10px;
+    border-bottom: 0.1rem solid --Sidebar;
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    box-shadow: 0 5px var(--Shadow);
+    align-items: center;
+}
+
+nav > div , nav > span {
+    display: inline-flex;
+}
+nav button , search {
+    border: none;
+    height: fit-content;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    border-left: 5px solid var(--Accent);
+    margin: 0.2rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    font-size: 1.3rem;
+}
+
+nav > div:first-of-type {
+    justify-content: left;
+}
+nav > div:last-of-type {
+    justify-content: right;
+}
+
+nav > span {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+nav > div > button {
+    background-color: var(--TopBarButtons);
+   
+}
+
+button:hover , search:hover {
+    border-left: 5px solid var(--Accent2);
+}
+button:active {
+    border-left: 5px solid var(--TopBar);
+}
+
+/* SEARCH BAR */
+
+search {
+    background-color: var(--SearchBar);
+}
+
+input {
+    font-size: 1.3rem;
+    border:none;
+    background-color: transparent;
+    color: var(--Text);
+}
+
+input:focus, textarea {
+    outline: none !important;
+    color: var(--Accent);
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 35px;
+    width: 30%;
+    padding: 5px;
+    height: fit-content;
+    float: right;
+    clear: right;
+    color: var(--Text);
+    background-color: var(--Resultsbox);
+    list-style-type: none;
+    text-align: left;
+    border: 2px solid var(--ResultsBorder);
+    border-top: none;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#results li:nth-of-type(2n) {
+    background-color: var(--ResultsDark);
+}
+
+.i-testing {
+    display: inline-block;
+    width: 100px;
+}
+
+button.LightDark {
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid var(--LDOne);
+    background-image: linear-gradient(to right, var(--LDOne) 0%, var(--LDOne) 50%, var(--LDTwo) 50%, var(--LDTwo) 100%);
+}
+
+/* ================================================================================================= */
+/* SIDEBAR */
+
+menu {
+    align-items: flex-start;
+    display: flex;
+    z-index: 2;
+    background-color: var(--Sidebar);
+    margin-top: 0;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(70px + 0.2vh);
+    flex-basis: calc(var(--SBarWidth) - 00.1rem);
+    order: 2;
+    padding: 10px;
+    height: calc(99.8vh - 90px);
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    border-right: 0.1rem solid var(--SbarBorder);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+menu::-webkit-scrollbar {
+    display: none;
+}
+
+menu li {
+    list-style-type: square;
+}
+menu li::marker {
+    color: var(--A1);
+}
+menu li:nth-of-type(2n) a {
+    color: var(--A2);
+}
+
+menu li li {
+    list-style-type: none;
+}
+
+menu li ul {
+    box-sizing: content-box;
+    padding-left: 5px;
+    border-left: 3px solid var(--A1);
+    list-style-type: none;
+}
+
+/* ================================================================================================== */
+/* CONTENT */
+
+main {
+    z-index: 1;
+    width: calc(100vw - 360px - 00.2rem);
+    max-width: calc(100vw - 360px - 00.2rem);
+    order: 3;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--Content);
+    padding: 0.1rem;
+    border-top: 2px solid var(--Background);
+    flex-shrink: 2;
+}
+
+/* IMAGES */
+
+img{
+    margin-top: 1rem;
+}
+[lr="left"]{
+    float: left;
+    margin: 5px;
+}
+[lr="right"]{
+    float: right;
+    margin: 5px;
+    margin-left: 19px;
+}
+[lr]::after{
+    height: 0;
+    content: '';
+    width: 100%;
+    clear: both;
+    display: block;
+}
+
+/* CODE */
+
+/* BASIC CODE BLOCK */
+
+p code{
+    height: fit-content;
+    width: fit-content;
+    color: var(--Highlight3);
+    background-color: var(--CodeBlock);
+    border: 2px solid var(--CodeBorder);
+    padding: 0 5px 0 5px;
+    font-size: 0.8em;
+}
+
+/* HIGHLIGHTED CODE BLOCKS */
+
+figure.highlight, figure.highlighter-rouge{
+    display: flex;
+    align-items: top;
+    justify-content: right;
+    position: relative;
+    margin: 10px auto 10px auto;
+    overflow: scroll;
+    justify-content: left;
+    background-color: var(--CodeBlock);
+    border: 2px solid var(--CodeBorder);
+    padding: 5px;
+    color: var(--Highlight2);
+    font-size: 0.9rem;
+}
+div.highlight{
+    width: 100%;
+    overflow: scroll;
+    padding: 0 0 10px 0;
+}
+.highlight pre{
+    margin: 10px 0 0 0;
+}
+
+/* LANGUAGE DECLARATIONS */
+.highlight figcaption, .highlighter-rouge figcaption{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: 0 10px 0 5px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--Highlight);
+}
+.highlight figcaption::first-letter, .highlighter-rouge figcaption::first-letter{
+    text-transform: capitalize;
+}
+
+/* CODE BLCOKS WITH LINE NUMBERING */
+
+table.rouge-table{
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+.rouge-table td{
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    font-style: normal;
+    padding: 0 0 0 5px;
+}
+td.gutter{
+    padding: 0 5px 0 0;
+    border-right: 2px solid var(--Highlight);
+}
+
+/* =============================================================================================== */
+/* MOBILE DISPLAY */
+
+@media(max-width: 800px) {
+
+    menu {
+        display: none;
+    }
+
+    main {
+        width: calc(100vw - 30px);
+        max-width:calc(100vw - 30px);
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: left;
+        overflow-x: hidden;
+        padding: 10px;
+    }
+
+    main::after {
+        height: 70px;
+        content: '';
+        width: 100%;
+        clear: both;
+        display: block;
+        background-color: var(--Content);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        /* margin-top: 5px; */
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav > div:last-of-type {
+        display: none;
+        
+    }
+
+    nav > div:first-of-type {
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+        width: 100vw;
+        padding: 10px;
+        background-color: var(--Sidebar);
+    }
+    nav > div {
+        width: 20%;
+        text-align: center;
+        justify-content: center;
+        background-color: var(--Blockquote);
+        border-left: none;
+        border-bottom: 5px solid var(--Accent);
+    }
+    .center-buttons{
+        width: 100%;
+    }
+    input{
+        width: 100%;
+        font-size: 2rem;
+    }
+    [lr]{
+        float: none;
+        clear: both;
+    }
+    table {
+        clear: both;
+        width: 100%;
+    }
+
+    .info{
+        width: fit-content;
+    }
+}

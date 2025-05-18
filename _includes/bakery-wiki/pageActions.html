@@ -1,0 +1,30 @@
+<!-- Partly modified from git-wiki-theme. -->
+{% if site.disable_edit != true %}
+    <div>
+        <button>
+            <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/edit/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
+                Edit
+            </a>
+        </button>
+        <button>
+            <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/new/{{site.git_branch | escape}}{{ site.site_root | default: '/' }}{{ site.wiki_folder }}?filename=">
+                Add new
+            </a>
+        </button>
+        <button>
+            <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/commits/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
+                History
+            </a>
+        </button>
+        <button>
+            <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/blob/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
+                Source
+            </a>
+        </button>
+        <button>
+            <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/delete/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
+                Delete
+            </a>
+        </button>
+    </div>
+{% endif %}

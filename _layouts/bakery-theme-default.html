@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  {% include bakery-wiki/head.html %}
+        {% comment %} This injects the frontmatter accent colors into the body css, overwriting the initial variables imported alongside the header at line 3
+        This does NOT need default values, the default should fallback to the stylesheets.
+        The if statements avoid asigning empty variables, which chromium browsers do not like, at all, chromium sucks. {% endcomment %}
+        {% comment %}============================================================================================== {% endcomment %}
+  {% if page.accent-light %}
+  <style>
+    body {
+      --accent-light: {{ page.accent-light }};
+    }
+  </style>
+  {% endif %}
+  {% if page.accent-dark %}
+  <style>
+    body {
+      --accent-dark: {{ page.accent-dark }};
+    }
+  </style>
+  {% endif %}
+  {% comment %}============================================================================================== {% endcomment %}
+  <body data-theme>
+    {% include bakery-wiki/navBar.html %}
+    {% comment %} Add the sidebar unless the page has it disabled {% endcomment %}
+    {% if page.sidebar != false %}
+    <menu>
+        {% include bakery-wiki/toc/toc-lib.html title=" " minHeaders=1 html=content sanitize=true class="SideBar" id="git-wiki-toc" h_min=1 h_max=3 %}
+    </menu>
+    {% endif %}
+    <main>
+        {{ content }}
+    </main>
+  </body>
+</html>

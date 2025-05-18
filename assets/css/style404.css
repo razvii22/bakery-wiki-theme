@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    /* ============================================================================================== */
+    /* DARK MODE */
+    --Sidebar: #101010;
+    --Content: #201f1f;
+    --Blockquote: #1b1b1b;
+    --BlockquoteD: #191919;
+    --Resultsbox: #151515ea;
+    --Background: rgb(32, 32, 32);
+    --Text: whitesmoke;
+    --NavButton: rgb(22, 2, 2);
+    --Highlight: #727272;
+    --Highlight2: #949494;
+    /* --Accent: #e2d326; */
+    --Accent: #990e0e;
+    /* --SbarBorder: rgb(32, 32, 32);
+    --Shadow: rgba(0, 0, 0, 0.226); */
+    /* ============================================================================================= */
+    /* LIGHT MODE */
+    /* --Sidebar: #f7f7f7;
+    --Content: #fbfbfb;
+    --Blockquote: #f5f2f2;
+    --BlockquoteD: #e8e8e8;
+    --Resultsbox: #b2b2b2ea;
+    --Background: rgb(236, 236, 236);
+    --Text: rgb(0, 0, 0);
+    --NavButton: rgb(236, 236, 236);
+    --Highlight: #f0f0f0;
+    --Highlight2: #f1f1f1;
+    --Accent: #e2d326;
+    --SbarBorder: rgb(222, 222, 222);
+    --Shadow: rgba(196, 196, 196, 0.046); */
+    /* ============================================================================================= */
+    --SBarWidth: 320px;
+    --TBarHeight: 50px;
+    overscroll-behavior: none;
+}
+
+body{
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin:0;
+    font-family: "B612 Mono", monospace;
+    font-size: 1.3rem;
+    background-color: var(--Background);
+    color: var(--Text);
+    box-sizing: border-box;
+}
+/* ================================================================================================== */
+
+::-webkit-scrollbar{
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    background-color: var(--Highlight);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--Text);
+    height: 50px;
+}
+
+/* ================================================================================================== */
+/* HEADINGS */
+
+h1{
+    margin: 0;
+    font-family: "Exo 2";
+}
+h2{
+    margin: 0;
+    font-family: "Exo 2";
+    clear:both;
+}
+
+/* ================================================================================================== */
+/* MISC */
+
+a{
+    color: rgb(232, 157, 46);
+    text-decoration: dotted;
+}
+
+/* ================================================================================================= */
+/* NAVIGATION */
+
+.TopBar{
+    max-width: calc(100% - 20px);
+    font-family: "Exo 2";
+    z-index: 3;
+    background-color: var(--Content);
+    position: sticky;
+    top: 0;
+    margin-bottom: auto;
+    order: 1;
+    height: var(--TBarHeight);
+    width: 100vw;
+    padding: 10px;
+    border-bottom: 0.1rem solid --Sidebar;
+    /* display: inline-flex;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    /* overflow: hidden; */
+    box-shadow: 0 5px var(--Shadow);
+    align-items: center;
+    border-bottom: 2px solid var(--Accent);
+}
+.TopBar div{
+    display: inline-flex;
+}
+.left-buttons{
+    justify-content: left;
+}
+.center-buttons{
+    justify-content: center;
+    overflow: hidden;
+}
+.right-buttons{
+    justify-content: right;
+}
+.navbutton{
+    font-size: 1.3rem;
+    background-color: var(--Sidebar);
+    margin: 0.2rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border-left: 5px solid var(--Accent);
+    height: fit-content;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.navbutton2{
+    font-size: 1.3rem;
+    background-color: var(--BlockquoteD);
+    margin: 0.2rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border-left: 5px solid var(--Accent);
+    height: fit-content;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    /* overflow-y: hidden; */
+}
+input{
+    font-size: 1.3rem;
+    border:none;
+    background-color: transparent;
+    color: var(--Text);
+}
+input:focus, textarea {
+    outline: none !important;
+    color: var(--Accent);
+}
+#results{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* right: 35%; */
+    top: 35px;
+    width: 30%;
+    padding: 5px;
+    height: fit-content;
+    float: right;
+    clear: right;
+    color: var(--Text);
+    background-color: var(--Resultsbox);
+    list-style-type: none;
+    text-align: left;
+    border: 5px solid var(--Sidebar);
+    /* overflow: hidden; */
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#results li:nth-of-type(2n){
+    background-color: rgba(0, 0, 0, 0.132);
+}
+
+.i-testing{
+    display: inline-block;
+    width: 100px;
+}
+
+/* ================================================================================================== */
+/* CONTENT */
+.error{
+    text-align: center;
+    z-index: 1;
+    max-width: 33w;
+    margin-left: auto;
+    margin-right: auto;
+    order: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.error h1{
+    font-size: 8rem;
+}
+
+/* =============================================================================================== */
+/* MOBILE DISPLAY */
+
+@media(max-width: 800px){
+    .SideBar{
+        display: none;
+    }
+    .Content{
+        max-width: calc(100vw - 20px);
+        width: calc(100% - 20px);
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        /* justify-content: center; */
+        overflow-x: hidden;
+    }
+    .Content::after{
+        height: 70px;
+        content: '';
+        width: 100%;
+        clear: both;
+        display: block;
+        background-color: var(--Content);
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+        /* margin-top: 5px; */
+    }
+    .TopBar{
+        display: flex;
+        justify-content: center;
+    }
+    div[buttons]{
+        display: none;
+        
+    }
+    div.left-buttons{
+        position: fixed;
+        bottom: 0px;
+        /* height: 100%; */
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+        width: 100vw;
+        padding: 10px;
+        background-color: var(--Sidebar);
+    }
+    .navbutton{
+        width: 20%;
+        text-align: center;
+        justify-content: center;
+        background-color: var(--Blockquote);
+        border-left: none;
+        border-bottom: 5px solid var(--Accent);
+    }
+    .center-buttons{
+        width: 100%;
+    }
+    input{
+        width: 100%;
+        font-size: 2rem;
+    }
+    [lr]{
+        float: none;
+        clear: both;
+    }
+    .table{
+        clear: both;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+    div.info{
+        width: fit-content;
+    }
+}

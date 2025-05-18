@@ -1,7 +1,20 @@
 # (string) Title of your wiki
-title: 
+title: "bakery-wiki"
+# (string) if you've installed your wiki in subfolder, you must change this configuration
+# with your folder name, otherwise leave it empty
+baseurl: "/test"
 # (string) Description of your wiki
-description: 
+description: 'The "Official" theme repository for the Bakery wiki'
+# (mapping) Left side navigation buttons, leave empty to remove them
+navButtons:
+  Home: "/"
+  Test Page: "/wiki/testpage.html"
+# HACK Github stuff, using jekyll-github-metadata seems wasteful when we're only using a few variables.
+# (string) repo url: user/repo
+github:
+  repository_url: "razvii22/test"
+# (string) Specify branch rendered by gitpages allowing wiki tool buttons to work
+git_branch: "main"
 # (boolean) disable edit functionalities (edit/delete/add pages)
 disable_edit: false
 # (boolean) Enable/disable wiki page list in sidebar
@@ -17,29 +30,14 @@ show_wiki_posts_limit: 10
 # from jekyll (read jekyll doc)
 paginate: 5
 paginate_path: "/assets/blog/page:num"
-permalink: "/assets/blog/posts/:year/:month/:day/:title:output_ext"
-# (boolean) Enable/disable download buttons in sidebar
-show_downloads: true
-# (string) Specify branch rendered by gitpages allowing wiki tool buttons to work
-git_branch: "master"
-# (string) Url of logo image, it can be full, absolute or relative.
-logo_url: 
-# (string) The UA-XXXXX-Y code from google analytic to enable GA on your wiki
-google_analytics: 
-# (string) folder where wiki pages are stored, it's needed for tool buttons
+permalink: /assets/blog/posts/:year/:month/:day/:title:output_ext
+# (string) folder where wiki pages are stored, it's needed for tool buttons (Kept for git wiki theme)
 wiki_folder: "wiki"
-# (boolean) if you're using github wiki as submodule then this config
-# must be enabled to allow tool buttons to work properly
-use_github_wiki: false
-# (boolean) Enable "Edit with Prose.io" button in tools, it's a 3rd party
-# service to edit github markdown pages easily
-use_prose_io: true
 # Select search_engine component from:
 # - js: it uses a built in javascript component that uses generated js object
 # - js_rss: it uses a built in javascript component that uses generated  sitemap_full.xml to search inside your wiki with lunr library (slow and experimental)
 # - github : it uses internal github repository search
 # - google : it uses cse search bar, you need to configure google_cse_token
-#
 search_engine : "js"
 # Setting google custom search engine for google
 # cse search bar (https://cse.google.it/cse/)
@@ -66,36 +64,18 @@ kramdown:
   syntax_highlighter: rouge
 
 defaults:
- - 
-    scope:
-      path: "wiki"
-    values:
-      permalink: /:basename
  -
     scope:
       path: "" # an empty string here means all files in the project
     values:
-      layout: "git-wiki-default"
- -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "git-wiki-default"
- -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "git-wiki-post"
+      layout: "bakery-theme-default"
  -
     scope:
       path: assets/blog
     values:
-      layout: "git-wiki-blog"
-sass:
-    style: compressed
+      layout: "bakery-theme-blog"
 plugins:
+  - jekyll-unified-codeblocks
   - jekyll-avatar
   - jekyll-coffeescript
   - jekyll-default-layout
@@ -112,36 +92,3 @@ plugins:
   - jekyll-sitemap
   - jekyll-titles-from-headings
   - jemoji
-
-
-#
-# INCLUDING HOOKS
-# They are optional, change them only if you need
-# Check wiki documentation to learn how they work
-#
-
-inc_before_toc : 
-inc_after_toc : 
-inc_before_content : 
-inc_after_content : 
-inc_before_footer : 
-inc_after_footer : 
-inc_before_head : 
-inc_after_head : 
-inc_before_meta : 
-inc_after_meta : 
-inc_before_scripts : 
-inc_after_scripts : 
-inc_before_styles : 
-inc_after_styles : 
-inc_before_header : 
-inc_after_header : 
-inc_before_tail : 
-inc_after_tail : 
-inc_before_tools : 
-inc_after_tools : 
-
-inc_before_page_list :
-inc_after_page_list :
-inc_before_post_list :
-inc_after_post_list :

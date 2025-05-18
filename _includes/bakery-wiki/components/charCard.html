@@ -1,0 +1,28 @@
+
+{% assign title = include.title | default: "Waiting." %}
+{% assign lr = include.lr | default: "right" %}
+{% assign imageURL = include.imageURL | default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfpbNRYOrK9HJpurmGakWEIv_zeu25-fvBug&s" %}
+{% assign table = include.table | default:''  | split: "|" %}
+<table class="info" lr="{{lr}}">
+    <tr>
+        <th colspan="100%">{{title}}</th>
+    </tr>
+    <tr>
+        <td colspan="100%"><img src="{{imageURL}}" alt=""></td>
+    </tr>
+    {% for row in table %}            
+        {% assign column = row | split: "," %}
+        <tr>
+            {% assign colspan = 100 | divided_by: column.size %}
+            {% if column.size > 1 %}                    
+                {% for item in column %}
+                    <td colspan="{{colspan}}%">{{item}}</td>
+                {% endfor %}
+            {% else %}
+                {% for item in column %}                    
+                    <td colspan="100%">{{item}}</td>
+                {% endfor %}
+            {%endif%}
+        </tr>
+    {% endfor %}
+</table>
