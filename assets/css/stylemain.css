@@ -196,8 +196,6 @@ th, caption {
     border-spacing: 0;
     max-width: 320px;
     background-color: var(--Blockquote);
-    border-left: 3px solid var(--Accent);
-    border-right: 3px solid var(--Accent);
     margin: 0 1px 0 1px;
     padding: 2px;
     word-break: break-all;
@@ -371,6 +369,7 @@ button.LightDark {
 menu {
     align-items: flex-start;
     display: flex;
+    flex-direction: column;
     z-index: 2;
     background-color: var(--Sidebar);
     margin-top: 0;
