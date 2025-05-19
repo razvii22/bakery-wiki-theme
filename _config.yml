@@ -12,7 +12,7 @@ navButtons:
 # HACK Github stuff, using jekyll-github-metadata seems wasteful when we're only using a few variables.
 # (string) repo url: user/repo
 github:
-  repository_url: "razvii22/test"
+  repository_url: "razvii22/bakery-wiki-theme"
 # (string) Specify branch rendered by gitpages allowing wiki tool buttons to work
 git_branch: "master"
 # (boolean) disable edit functionalities (edit/delete/add pages)
