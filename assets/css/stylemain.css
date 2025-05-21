@@ -586,7 +586,7 @@ td.gutter{
         border-left: none;
         border-bottom: 5px solid var(--Accent);
     }
-    .center-buttons{
+    nav > span {
         width: 100%;
     }
     input{

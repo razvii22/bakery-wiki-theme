@@ -329,10 +329,10 @@ main h1{
         border-left: none;
         border-bottom: 5px solid var(--Accent);
     }
-    .center-buttons{
+    nav > span {
         width: 100%;
     }
-    input{
+    input {
         width: 100%;
         font-size: 2rem;
     }
