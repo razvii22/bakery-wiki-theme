@@ -86,11 +86,11 @@ a{
 /* ================================================================================================= */
 /* NAVIGATION */
 
-.TopBar{
+nav {
     max-width: calc(100% - 20px);
     font-family: "Exo 2";
     z-index: 3;
-    background-color: var(--Content);
+    background-color: var(--TopBar);
     position: sticky;
     top: 0;
     margin-bottom: auto;
@@ -99,66 +99,74 @@ a{
     width: 100vw;
     padding: 10px;
     border-bottom: 0.1rem solid --Sidebar;
-    /* display: inline-flex;
-    justify-content: center; */
     display: grid;
     grid-template-columns: 35% 30% 35%;
-    /* overflow: hidden; */
     box-shadow: 0 5px var(--Shadow);
     align-items: center;
-    border-bottom: 2px solid var(--Accent);
 }
-.TopBar div{
+
+nav > div , nav > span {
     display: inline-flex;
 }
-.left-buttons{
+nav button , search {
+    border: none;
+    height: fit-content;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    border-left: 5px solid var(--Accent);
+    margin: 0.2rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    font-size: 1.3rem;
+}
+
+nav > div:first-of-type {
     justify-content: left;
 }
-.center-buttons{
-    justify-content: center;
-    overflow: hidden;
-}
-.right-buttons{
+nav > div:last-of-type {
     justify-content: right;
 }
-.navbutton{
-    font-size: 1.3rem;
-    background-color: var(--Sidebar);
-    margin: 0.2rem;
-    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
-    border-left: 5px solid var(--Accent);
-    height: fit-content;
-    text-overflow: clip;
-    white-space: nowrap;
+
+nav > span {
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
-.navbutton2{
-    font-size: 1.3rem;
-    background-color: var(--BlockquoteD);
-    margin: 0.2rem;
-    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
-    border-left: 5px solid var(--Accent);
-    height: fit-content;
-    text-overflow: clip;
-    white-space: nowrap;
-    overflow: hidden;
-    /* overflow-y: hidden; */
+
+nav > div > button {
+    background-color: var(--TopBarButtons);
+   
 }
-input{
+
+button:hover , search:hover {
+    border-left: 5px solid var(--Accent2);
+}
+button:active {
+    border-left: 5px solid var(--TopBar);
+}
+
+/* SEARCH BAR */
+
+search {
+    background-color: var(--SearchBar);
+}
+
+input {
     font-size: 1.3rem;
     border:none;
     background-color: transparent;
     color: var(--Text);
 }
+
 input:focus, textarea {
     outline: none !important;
     color: var(--Accent);
 }
-#results{
+
+#results {
     display: flex;
     flex-direction: column;
     position: absolute;
-    /* right: 35%; */
     top: 35px;
     width: 30%;
     padding: 5px;
@@ -169,24 +177,84 @@ input:focus, textarea {
     background-color: var(--Resultsbox);
     list-style-type: none;
     text-align: left;
-    border: 5px solid var(--Sidebar);
-    /* overflow: hidden; */
+    border: 2px solid var(--ResultsBorder);
+    border-top: none;
     white-space: normal;
     word-wrap: break-word;
     word-break: break-all;
 }
-#results li:nth-of-type(2n){
-    background-color: rgba(0, 0, 0, 0.132);
+
+#results li:nth-of-type(2n) {
+    background-color: var(--ResultsDark);
 }
 
-.i-testing{
+.i-testing {
     display: inline-block;
     width: 100px;
 }
 
+button.LightDark {
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid var(--LDOne);
+    background-image: linear-gradient(to right, var(--LDOne) 0%, var(--LDOne) 50%, var(--LDTwo) 50%, var(--LDTwo) 100%);
+}
+
+/* ================================================================================================= */
+/* SIDEBAR */
+
+menu {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    background-color: var(--Sidebar);
+    margin-top: 0;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(70px + 0.2vh);
+    flex-basis: calc(var(--SBarWidth) - 00.1rem);
+    order: 2;
+    padding: 10px;
+    height: calc(99.8vh - 90px);
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    border-right: 0.1rem solid var(--SbarBorder);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+menu::-webkit-scrollbar {
+    display: none;
+}
+
+menu li {
+    list-style-type: square;
+}
+menu li::marker {
+    color: var(--A1);
+}
+menu li:nth-of-type(2n) a {
+    color: var(--A2);
+}
+
+menu li li {
+    list-style-type: none;
+}
+
+menu li ul {
+    box-sizing: content-box;
+    padding-left: 5px;
+    border-left: 3px solid var(--A1);
+    list-style-type: none;
+}
+
 /* ================================================================================================== */
 /* CONTENT */
-.error{
+main{
     text-align: center;
     z-index: 1;
     max-width: 33w;
@@ -196,27 +264,30 @@ input:focus, textarea {
     margin-top: auto;
     margin-bottom: auto;
 }
-.error h1{
+main h1{
     font-size: 8rem;
 }
 
 /* =============================================================================================== */
 /* MOBILE DISPLAY */
 
-@media(max-width: 800px){
-    .SideBar{
+@media(max-width: 800px) {
+
+    menu {
         display: none;
     }
-    .Content{
-        max-width: calc(100vw - 20px);
-        width: calc(100% - 20px);
+
+    main {
+        width: calc(100vw - 30px);
+        max-width:calc(100vw - 30px);
         display: grid;
         grid-template-columns: 100%;
-        justify-items: center;
-        /* justify-content: center; */
+        justify-items: left;
         overflow-x: hidden;
+        padding: 10px;
     }
-    .Content::after{
+
+    main::after {
         height: 70px;
         content: '';
         width: 100%;
@@ -224,23 +295,25 @@ input:focus, textarea {
         display: block;
         background-color: var(--Content);
     }
-    img{
+
+    img {
         max-width: 100%;
         height: auto;
         /* margin-top: 5px; */
     }
-    .TopBar{
+
+    nav {
         display: flex;
         justify-content: center;
     }
-    div[buttons]{
+    nav > div:last-of-type {
         display: none;
         
     }
-    div.left-buttons{
+
+    nav > div:first-of-type {
         position: fixed;
         bottom: 0px;
-        /* height: 100%; */
         display: flex;
         font-size: 2rem;
         justify-content: center;
@@ -248,7 +321,7 @@ input:focus, textarea {
         padding: 10px;
         background-color: var(--Sidebar);
     }
-    .navbutton{
+    nav > div {
         width: 20%;
         text-align: center;
         justify-content: center;
@@ -262,17 +335,5 @@ input:focus, textarea {
     input{
         width: 100%;
         font-size: 2rem;
-    }
-    [lr]{
-        float: none;
-        clear: both;
-    }
-    .table{
-        clear: both;
-        max-width: 100%;
-        overflow-x: scroll;
-    }
-    div.info{
-        width: fit-content;
     }
 }
