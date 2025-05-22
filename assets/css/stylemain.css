@@ -481,13 +481,20 @@ figure.highlight, figure.highlighter-rouge{
     color: var(--Highlight2);
     font-size: 0.9rem;
 }
-div.highlight{
+
+div.highlight {
     width: 100%;
     overflow: scroll;
     padding: 0 0 10px 0;
 }
-.highlight pre{
+
+pre {
     margin: 10px 0 0 0;
+    max-width: 100%;
+}
+
+code > table {
+    max-width: 100%;
 }
 
 /* LANGUAGE DECLARATIONS */
@@ -589,7 +596,7 @@ td.gutter{
     nav > span {
         width: 100%;
     }
-    input{
+    input {
         width: 100%;
         font-size: 2rem;
     }
