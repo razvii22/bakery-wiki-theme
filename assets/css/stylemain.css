@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
+    overscroll-behavior: none;
     --accent-light: #0044cc; /* fallback or default for light mode */
     --accent-dark: #6699ff;  /* fallback or default for dark mode */
     --SBarWidth: 320px;
-    --TBarHeight: 50px;
-    overscroll-behavior: none;
+    --TBarHeight: 54px;
     --A1: rgb(232, 157, 46);
     --A2: rgb(232, 192, 46);
     /* ============================================================================================== */
@@ -33,6 +33,11 @@
     --SbarBorder: rgb(32, 32, 32);
     --Shadow: rgba(0, 0, 0, 0.226);
     --CodeBlock: rgb(7, 8, 46);
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 [data-theme="light"] {
@@ -65,7 +70,8 @@
     --CodeBlock: rgb(40, 45, 116);
     /* ============================================================================================= */
 }
-body{
+
+body {
     --Accent: var(--accent-dark);
     --Accent2: var(--accent-light);
     display: flex;
@@ -81,195 +87,31 @@ body{
 }
 
 /* ================================================================================================== */
-/* SCROLLBAR */
-
-::-webkit-scrollbar {
-    z-index: 1;
-    width: 5px;
-    height: 5px;
-    background-color: var(--Highlight);
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--Text);
-    height: 50px;
-}
-
-/* ================================================================================================== */
-/* HEADINGS */
-
-h1{
-    margin: 0;
-    font-family: "Exo 2";
-}
-
-h2{
-    margin: 0;
-    font-family: "Exo 2";
-}
-
-h3 {
-    margin: 0;
-    font-family: "Exo 2";
-}
-
-h4 {
-    margin: 0;
-    font-family: "Exo 2";
-    /* width: 100%; */
-}
-
-h5 {
-    margin: 0;
-    font-family: "Exo 2";
-}
-
-h6 {
-    margin: 0;
-    font-family: "Exo 2";
-}
-
-/* ================================================================================================== */
-/* MISC */
-
-hr {
-    color: var(--Sidebar);
-    border-radius: 2px;
-    border-top: var(--Sidebar) solid 2px;
-    border-bottom: var(--Accent) solid 1px;
-}
-a {
-    color: rgb(232, 157, 46);
-    text-decoration: dotted;
-}
-/* =================================================================================================== */
-/* TABLES */
-
-table, th, td {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-table {
-    display: block;
-    overflow: scroll;
-    clear: both;
-    font-family: "B612 Mono";
-    margin: 1.5rem 0 1.5rem 0;
-    width: 100px;
-    width: calc(100vw - var(--SBarWidth) - 50px);
-}
-td {
-    background-color: var(--Blockquote);
-    padding: 10px;
-    font-style: italic;
-    border-left: 3px solid var(--Accent);
-    border-right: 3px solid var(--Accent);
-    text-align: center;
-}
-th, caption {
-    font-weight: 700;
-    background-color: var(--BlockquoteD);
-    padding: 0.5rem 20px 0.5rem 20px; /*Top Right Bottom Left*/
-    text-align: center;
-}
-
-/* INFO TABLES */
-
-.info td {
-    background-color: var(--Blockquote);
-    padding: 0px;
-    font-style: italic;
-    border-left: 3px solid var(--Accent);
-    border-right: 3px solid var(--Accent);
-    text-align: center;
-}
-
-.info {
-    display: grid;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    font-family: "B612 Mono";
-    margin: 0 0 0 0;
-    max-width: 300px;
-    border-spacing: 0;
-    max-width: 320px;
-    background-color: var(--Blockquote);
-    margin: 0 1px 0 1px;
-    padding: 2px;
-    word-break: break-all;
-    overflow: hidden;
-}
-.info img {
-    margin: 0px;
-    max-width: 300px;
-}
-.infowide {
-    grid-column: 1 / span 2;
-    padding: 10px;
-    background-color: var(--BlockquoteD);
-}
-
-/* ================================================================================================== */
-/* BLOCKQUOTES */
-
-blockquote {
-    background-color: var(--Blockquote);
-    font-style: italic;
-    padding: 10px;
-    border-left: 3px solid var(--Accent);
-    border-right: 3px solid var(--Accent);
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0 10px 0;
-    clear: both;
-}
-
-blockquote[blame]::after {
-    content: "- " attr(blame);
-    color: var(--Accent);
-    margin-left: auto;
-}
-
-blockquote p {
-    margin: 0;
-}
-
-[gradient] {
-    background-color: transparent;
-    padding-right: 150px;
-    border-right: none;
-    background-image: linear-gradient(to right, var(--Gradient), transparent);
-}
-
-/* ================================================================================================= */
 /* NAVIGATION */
 
-nav {
-    max-width: calc(100% - 20px);
+header {
+    width: 100%;
+    height: var(--TBarHeight);
     font-family: "Exo 2";
     z-index: 3;
     background-color: var(--TopBar);
-    position: sticky;
+    position: fixed;
     top: 0;
     margin-bottom: auto;
-    order: 1;
-    height: var(--TBarHeight);
-    width: 100vw;
-    padding: 10px;
-    border-bottom: 0.1rem solid --Sidebar;
+    /* order: 1; */
+    padding: 5px;
+    border-bottom: 1px solid --Sidebar;
     display: grid;
     grid-template-columns: 35% 30% 35%;
     box-shadow: 0 5px var(--Shadow);
     align-items: center;
 }
 
-nav > div , nav > span {
+header > nav , header > span {
     display: inline-flex;
 }
-nav button , search {
+
+header button , search {
     border: none;
     height: fit-content;
     text-overflow: clip;
@@ -281,20 +123,20 @@ nav button , search {
     font-size: 1.3rem;
 }
 
-nav > div:first-of-type {
+header > nav:first-of-type {
     justify-content: left;
 }
-nav > div:last-of-type {
+header > nav:last-of-type {
     justify-content: right;
 }
 
-nav > span {
+header > span {
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-nav > div > button {
+header > nav > button {
     background-color: var(--TopBarButtons);
    
 }
@@ -349,11 +191,6 @@ input:focus, textarea {
     background-color: var(--ResultsDark);
 }
 
-.i-testing {
-    display: inline-block;
-    width: 100px;
-}
-
 button.LightDark {
     height: 30px;
     width: 30px;
@@ -363,29 +200,50 @@ button.LightDark {
     background-image: linear-gradient(to right, var(--LDOne) 0%, var(--LDOne) 50%, var(--LDTwo) 50%, var(--LDTwo) 100%);
 }
 
+.LightDark:hover {
+    border: 2px solid var(--LDTwo);
+    background-image: linear-gradient(to right, var(--LDTwo) 0%, var(--LDTwo) 50%, var(--LDOne) 50%, var(--LDOne) 100%);
+}
+
 /* ================================================================================================= */
 /* SIDEBAR */
 
 menu {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
+    height: calc(100vh - var(--TBarHeight));
+    width: var(--SBarWidth);
     z-index: 2;
     background-color: var(--Sidebar);
-    margin-top: 0;
-    align-self: flex-start;
+    margin: 0;
     position: sticky;
-    top: calc(70px + 0.2vh);
-    flex-basis: calc(var(--SBarWidth) - 00.1rem);
-    order: 2;
-    padding: 10px;
-    height: calc(99.8vh - 90px);
+    top: var(--TBarHeight);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
     font-size: 0.9rem;
     overflow-wrap: break-word;
     overflow-y: scroll;
-    border-right: 0.1rem solid var(--SbarBorder);
-    -ms-overflow-style: none;
+    overscroll-behavior-x: none;
+    border-right: 1px solid var(--SbarBorder);
     scrollbar-width: none;
+}
+
+menu > ul {
+    padding-top: 10px;
+    height: 50%;
+    overflow-y: scroll;
+    background-color: var(--Sidebar);
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid var(--Highlight);
+    padding-right: 5px;
+}
+
+menu > ul > li {
+    height: fit-content;
+}
+
+menu > *:not(ul) {
+    margin: 0 auto 0 auto;
 }
 
 menu::-webkit-scrollbar {
@@ -413,21 +271,189 @@ menu li ul {
     list-style-type: none;
 }
 
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--TopBar);
+    border-top: 2px solid var(--Highlight);
+    width: 100%;
+}
+
 /* ================================================================================================== */
-/* CONTENT */
+/* MAIN */
 
 main {
-    z-index: 1;
-    width: calc(100vw - 360px - 00.2rem);
-    max-width: calc(100vw - 360px - 00.2rem);
-    order: 3;
-    margin-left: auto;
-    margin-right: auto;
+    width: calc(100vw - var(--SBarWidth) - 10px);
+    margin: var(--TBarHeight) auto 0 auto;
     background-color: var(--Content);
-    padding: 0.1rem;
+    padding: 0 5px 0 5px;
     border-top: 2px solid var(--Background);
-    flex-shrink: 2;
+    height: calc(100vh - var(--TBarHeight));
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
 }
+
+main > header {
+    position: sticky;
+    top: 0;
+}
+
+/* ================================================================================================== */
+
+body > :not(header, menu, main) {
+    order: 2;
+    max-width: calc(100vw - (2 * var(--SBarWidth)) - 10px);
+    margin: 0 calc(var(--SBarWidth) + 5px) 0 calc(var(--SBarWidth) + 5px);
+    padding: 5px;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    z-index: 1;
+    background-color: transparent;
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar:hover {
+    background-color: var(--Highlight);
+    width: 5px;
+}
+
+::-webkit-scrollbar-track:hover {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--Text);
+}
+
+/* ================================================================================================== */
+/* HEADINGS */
+
+h1{
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h2{
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h3 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h4 {
+    margin: 0;
+    font-family: "Exo 2";
+    /* width: 100%; */
+}
+
+h5 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+h6 {
+    margin: 0;
+    font-family: "Exo 2";
+}
+
+/* ========================================================================================================== */
+/* TABLES */
+
+table, th, td {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+table {
+    overflow-x: scroll;
+    font-family: "B612 Mono";
+    margin: 1.5rem 0 1.5rem 0;
+    max-width: calc(100vw - var(--SBarWidth) - 10px);
+}
+td {
+    background-color: var(--Blockquote);
+    padding: 10px;
+    font-style: italic;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    text-align: center;
+}
+th, caption {
+    font-weight: 700;
+    background-color: var(--BlockquoteD);
+    padding: 0.5rem 20px 0.5rem 20px;
+    text-align: center;
+}
+
+/* INFO TABLES */
+
+.info {
+    width: fit-content;
+    max-width: 320px;
+    font-family: "B612 Mono";
+    border-spacing: 0;
+    background-color: var(--Blockquote);
+    margin: 0 2px 0 2px;
+    padding: 2px;
+    word-break: break-all;
+}
+
+.info td {
+    background-color: var(--Blockquote);
+    padding: 2px;
+    font-style: italic;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    text-align: center;
+    justify-content: center;
+}
+
+.info img {
+    margin: auto;
+    max-width: 90%;
+    object-fit: scale-down;
+}
+
+/* ================================================================================================== */
+/* BLOCKQUOTES */
+
+blockquote {
+    background-color: var(--Blockquote);
+    font-style: italic;
+    padding: 10px;
+    border-left: 3px solid var(--Accent);
+    border-right: 3px solid var(--Accent);
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+}
+
+blockquote[blame]::after {
+    content: "- " attr(blame);
+    color: var(--Accent);
+    margin-left: auto;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+[gradient] {
+    background-color: transparent;
+    padding-right: 150px;
+    border-right: none;
+    background-image: linear-gradient(to right, var(--Gradient), transparent);
+}
+
+/* ================================================================================================= */
+
 
 /* IMAGES */
 
@@ -451,6 +477,7 @@ img{
     display: block;
 }
 
+/* ================================================================================================= */
 /* CODE */
 
 /* BASIC CODE BLOCK */
@@ -468,12 +495,14 @@ p code{
 /* HIGHLIGHTED CODE BLOCKS */
 
 figure.highlight, figure.highlighter-rouge{
+    width: 100%;
+    height: fit-content;
     display: flex;
     align-items: top;
     justify-content: right;
     position: relative;
     margin: 10px auto 10px auto;
-    overflow: scroll;
+    overflow-x: scroll;
     justify-content: left;
     background-color: var(--CodeBlock);
     border: 2px solid var(--CodeBorder);
@@ -481,20 +510,14 @@ figure.highlight, figure.highlighter-rouge{
     color: var(--Highlight2);
     font-size: 0.9rem;
 }
-
-div.highlight {
+div.highlight{
     width: 100%;
-    overflow: scroll;
+    height: fit-content;
+    overflow-x: scroll;
     padding: 0 0 10px 0;
 }
-
-pre {
+.highlight pre{
     margin: 10px 0 0 0;
-    max-width: 100%;
-}
-
-code > table {
-    max-width: 100%;
 }
 
 /* LANGUAGE DECLARATIONS */
@@ -508,31 +531,45 @@ code > table {
     font-size: 0.9rem;
     color: var(--Highlight);
 }
-.highlight figcaption::first-letter, .highlighter-rouge figcaption::first-letter{
-    text-transform: capitalize;
-}
 
 /* CODE BLCOKS WITH LINE NUMBERING */
 
 table.rouge-table{
+    width: 100%;
     border: none;
     background-color: transparent;
     margin: 0;
     padding: 0;
 }
-.rouge-table td{
+.rouge-table td {
     border: none;
     background-color: transparent;
     text-align: left;
     font-style: normal;
     padding: 0 0 0 5px;
 }
-td.gutter{
+
+td.gutter {
     padding: 0 5px 0 0;
     border-right: 2px solid var(--Highlight);
 }
 
-/* =============================================================================================== */
+/* ================================================================================================== */
+/* MISC */
+
+hr {
+    color: var(--Sidebar);
+    border-radius: 2px;
+    border-top: var(--Sidebar) solid 2px;
+    border-bottom: var(--Accent) solid 1px;
+}
+a {
+    color: rgb(232, 157, 46);
+    text-decoration: dotted;
+}
+
+/* =================================================================================================== */
+
 /* MOBILE DISPLAY */
 
 @media(max-width: 800px) {
@@ -542,48 +579,38 @@ td.gutter{
     }
 
     main {
-        width: calc(100vw - 30px);
-        max-width:calc(100vw - 30px);
-        display: grid;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 2 * var(--TBarHeight));
         grid-template-columns: 100%;
         justify-items: left;
         overflow-x: hidden;
         padding: 10px;
     }
 
-    main::after {
-        height: 70px;
-        content: '';
-        width: 100%;
-        clear: both;
-        display: block;
-        background-color: var(--Content);
-    }
-
     img {
         max-width: 100%;
         height: auto;
-        /* margin-top: 5px; */
     }
 
-    nav {
+    header {
         display: flex;
         justify-content: center;
     }
-    nav > div:last-of-type {
+    header > nav:last-of-type {
         display: none;
         
     }
 
-    nav > div:first-of-type {
+    header > nav:first-of-type {
         position: fixed;
-        bottom: 0px;
+        bottom: 0;
         display: flex;
         font-size: 2rem;
         justify-content: center;
         width: 100vw;
         padding: 10px;
         background-color: var(--Sidebar);
+        border-top: 2px solid var(--Background);
     }
     nav > div {
         width: 20%;
@@ -593,10 +620,10 @@ td.gutter{
         border-left: none;
         border-bottom: 5px solid var(--Accent);
     }
-    nav > span {
+    .center-buttons{
         width: 100%;
     }
-    input {
+    input{
         width: 100%;
         font-size: 2rem;
     }

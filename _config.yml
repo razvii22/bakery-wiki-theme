@@ -2,7 +2,7 @@
 title: "bakery-wiki"
 # (string) if you've installed your wiki in subfolder, you must change this configuration
 # with your folder name, otherwise leave it empty
-baseurl: "/test"
+baseurl: "/wiki"
 # (string) Description of your wiki
 description: 'The "Official" theme repository for the Bakery wiki'
 # (mapping) Left side navigation buttons, leave empty to remove them

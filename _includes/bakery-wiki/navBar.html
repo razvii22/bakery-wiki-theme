@@ -1,13 +1,14 @@
-<nav>
-    <div>
+
+<header>
+    <nav>
         {% for key in site.navButtons %}
         <button>
             <a href={{site.baseurl}}{{ key[1] }}>
-                {{key[0]}}
+                {{key [0]}}
             </a>
         </button>
-        {% endfor %}
-    </div>
+        {% endfor included %}
+    </nav>
     <span>
         <search>
             <input id="search-input" type="text" placeholder="Search Wiki">
@@ -17,7 +18,7 @@
         </button>
     </span>
     {% include bakery-wiki/pageActions.html %}
-</nav>
+</header>
 <!-- script pointing to jekyll-search.js -->
 <script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>
 <script async src="{{ 'assets/js/searchdata.js' | relative_url }}"></script>

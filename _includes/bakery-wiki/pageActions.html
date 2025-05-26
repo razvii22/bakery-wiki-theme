@@ -1,6 +1,7 @@
 <!-- Partly modified from git-wiki-theme. -->
+
 {% if site.disable_edit != true %}
-    <div>
+    <nav>
         <button>
             <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/edit/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
                 Edit
@@ -26,5 +27,5 @@
                 Delete
             </a>
         </button>
-    </div>
+    </nav>
 {% endif %}

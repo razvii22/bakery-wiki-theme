@@ -1,43 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
+    overscroll-behavior: none;
+    --accent-light: #0044cc; /* fallback or default for light mode */
+    --accent-dark: #6699ff;  /* fallback or default for dark mode */
+    --SBarWidth: 320px;
+    --TBarHeight: 54px;
+    --A1: rgb(232, 157, 46);
+    --A2: rgb(232, 192, 46);
     /* ============================================================================================== */
     /* DARK MODE */
+    --LDOne: #FFFFFF;
+    --LDTwo: #000000;
     --Sidebar: #101010;
     --Content: #201f1f;
+    --TopBar: var(--Content);
+    --TopBarButtons: var(--Sidebar);
     --Blockquote: #1b1b1b;
     --BlockquoteD: #191919;
+    --Gradient: var(--Sidebar);
+    --SearchBar: var(--BlockquoteD);
     --Resultsbox: #151515ea;
+    --ResultsDark: rgba(0, 0, 0, 0.132);
+    --ResultsBorder: var(--Sidebar);
     --Background: rgb(32, 32, 32);
     --Text: whitesmoke;
     --NavButton: rgb(22, 2, 2);
+    --CodeBorder: var(--Highlight);
     --Highlight: #727272;
     --Highlight2: #949494;
-    /* --Accent: #e2d326; */
-    --Accent: #990e0e;
-    /* --SbarBorder: rgb(32, 32, 32);
-    --Shadow: rgba(0, 0, 0, 0.226); */
+    --Highlight3: var(--Text);
+    --SbarBorder: rgb(32, 32, 32);
+    --Shadow: rgba(0, 0, 0, 0.226);
+    --CodeBlock: rgb(7, 8, 46);
+}
+
+*{box-sizing: border-box;}
+
+[data-theme="light"] {
     /* ============================================================================================= */
     /* LIGHT MODE */
-    /* --Sidebar: #f7f7f7;
-    --Content: #fbfbfb;
+    --Accent: var(--accent-light);
+    --Accent2: var(--accent-dark);
+    --LDOne: #000000;
+    --LDTwo: var(--SearchBar);
+    --Sidebar: var(--Content);
+    --Content: #f5f2f2;
+    --TopBar: var(--Background);
+    --TopBarButtons: var(--Background);
     --Blockquote: #f5f2f2;
-    --BlockquoteD: #e8e8e8;
-    --Resultsbox: #b2b2b2ea;
+    --BlockquoteD: #ebebe5;
+    --Gradient: #e1e3d8;
+    --SearchBar: var(--ResultsDark);
+    --Resultsbox: #f1f1f1;
+    --ResultsDark: #f4f4f4;
+    --ResultsBorder: var(--Accent);
     --Background: rgb(236, 236, 236);
     --Text: rgb(0, 0, 0);
     --NavButton: rgb(236, 236, 236);
-    --Highlight: #f0f0f0;
-    --Highlight2: #f1f1f1;
-    --Accent: #e2d326;
-    --SbarBorder: rgb(222, 222, 222);
-    --Shadow: rgba(196, 196, 196, 0.046); */
+    --CodeBorder:var(--Text);
+    --Highlight: #aeaeae;
+    --Highlight2: #ece9e9;
+    --Highlight3: var(--Highlight2);
+    --SbarBorder: rgb(236, 236, 236);
+    --Shadow: rgba(184, 184, 184, 0.094);
+    --CodeBlock: rgb(40, 45, 116);
     /* ============================================================================================= */
-    --SBarWidth: 320px;
-    --TBarHeight: 50px;
-    overscroll-behavior: none;
 }
 
-body{
+body {
+    --Accent: var(--accent-dark);
+    --Accent2: var(--accent-light);
     display: flex;
     flex-flow: row;
     align-items: stretch;
@@ -49,66 +82,33 @@ body{
     color: var(--Text);
     box-sizing: border-box;
 }
-/* ================================================================================================== */
-
-::-webkit-scrollbar{
-    z-index: 1;
-    width: 5px;
-    height: 5px;
-    background-color: var(--Highlight);
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--Text);
-    height: 50px;
-}
 
 /* ================================================================================================== */
-/* HEADINGS */
-
-h1{
-    margin: 0;
-    font-family: "Exo 2";
-}
-h2{
-    margin: 0;
-    font-family: "Exo 2";
-    clear:both;
-}
-
-/* ================================================================================================== */
-/* MISC */
-
-a{
-    color: rgb(232, 157, 46);
-    text-decoration: dotted;
-}
-
-/* ================================================================================================= */
 /* NAVIGATION */
 
-nav {
-    max-width: calc(100% - 20px);
+header {
+    width: 100%;
+    height: var(--TBarHeight);
     font-family: "Exo 2";
     z-index: 3;
     background-color: var(--TopBar);
-    position: sticky;
+    position: fixed;
     top: 0;
     margin-bottom: auto;
-    order: 1;
-    height: var(--TBarHeight);
-    width: 100vw;
-    padding: 10px;
-    border-bottom: 0.1rem solid --Sidebar;
+    /* order: 1; */
+    padding: 5px;
+    border-bottom: 1px solid --Sidebar;
     display: grid;
     grid-template-columns: 35% 30% 35%;
     box-shadow: 0 5px var(--Shadow);
     align-items: center;
 }
 
-nav > div , nav > span {
+header > nav , header > span {
     display: inline-flex;
 }
-nav button , search {
+
+header button , search {
     border: none;
     height: fit-content;
     text-overflow: clip;
@@ -120,20 +120,20 @@ nav button , search {
     font-size: 1.3rem;
 }
 
-nav > div:first-of-type {
+header > nav:first-of-type {
     justify-content: left;
 }
-nav > div:last-of-type {
+header > nav:last-of-type {
     justify-content: right;
 }
 
-nav > span {
+header > span {
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-nav > div > button {
+header > nav > button {
     background-color: var(--TopBarButtons);
    
 }
@@ -188,12 +188,7 @@ input:focus, textarea {
     background-color: var(--ResultsDark);
 }
 
-.i-testing {
-    display: inline-block;
-    width: 100px;
-}
-
-button.LightDark {
+.LightDark {
     height: 30px;
     width: 30px;
     box-sizing: border-box;
@@ -202,73 +197,103 @@ button.LightDark {
     background-image: linear-gradient(to right, var(--LDOne) 0%, var(--LDOne) 50%, var(--LDTwo) 50%, var(--LDTwo) 100%);
 }
 
+.LightDark:hover {
+    border: 2px solid var(--LDTwo);
+    background-image: linear-gradient(to right, var(--LDTwo) 0%, var(--LDTwo) 50%, var(--LDOne) 50%, var(--LDOne) 100%);
+}
+
 /* ================================================================================================= */
-/* SIDEBAR */
 
-menu {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    background-color: var(--Sidebar);
-    margin-top: 0;
-    align-self: flex-start;
+footer {
     position: sticky;
-    top: calc(70px + 0.2vh);
-    flex-basis: calc(var(--SBarWidth) - 00.1rem);
-    order: 2;
-    padding: 10px;
-    height: calc(99.8vh - 90px);
-    font-size: 0.9rem;
-    overflow-wrap: break-word;
-    overflow-y: scroll;
-    border-right: 0.1rem solid var(--SbarBorder);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-menu::-webkit-scrollbar {
-    display: none;
-}
-
-menu li {
-    list-style-type: square;
-}
-menu li::marker {
-    color: var(--A1);
-}
-menu li:nth-of-type(2n) a {
-    color: var(--A2);
-}
-
-menu li li {
-    list-style-type: none;
-}
-
-menu li ul {
-    box-sizing: content-box;
-    padding-left: 5px;
-    border-left: 3px solid var(--A1);
-    list-style-type: none;
+    bottom: 0;
+    background-color: var(--TopBar);
+    border-top: 2px solid var(--Highlight);
+    width: 100%;
 }
 
 /* ================================================================================================== */
-/* CONTENT */
-main{
+/* MAIN */
+
+main {
     text-align: center;
-    z-index: 1;
-    max-width: 33w;
-    margin-left: auto;
-    margin-right: auto;
-    order: 3;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-main h1{
-    font-size: 8rem;
+    width: calc(100vw - var(--SBarWidth) - 10px);
+    margin: var(--TBarHeight) auto 0 auto;
+    background-color: var(--Content);
+    padding: 0 5px 0 5px;
+    border-top: 2px solid var(--Background);
+    height: calc(100vh - var(--TBarHeight));
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
 }
 
-/* =============================================================================================== */
+main > header {
+    position: sticky;
+    top: 0;
+}
+
+/* ================================================================================================== */
+
+body > :not(header, menu, main) {
+    order: 2;
+    max-width: calc(100vw - (2 * var(--SBarWidth)) - 10px);
+    margin: 0 calc(var(--SBarWidth) + 5px) 0 calc(var(--SBarWidth) + 5px);
+    padding: 5px;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    z-index: 1;
+    background-color: transparent;
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar:hover {
+    background-color: var(--Highlight);
+    width: 5px;
+}
+
+::-webkit-scrollbar-track:hover {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--Text);
+}
+
+/* ================================================================================================== */
+/* HEADINGS */
+
+h1 {
+    margin: 0;
+    font-family: "Exo 2";
+    font-size: 10rem;
+}
+
+h2 {
+    margin: 0;
+    font-family: "Exo 2";
+    font-size: 3rem;
+}
+
+/* ================================================================================================== */
+/* MISC */
+
+hr {
+    color: var(--Sidebar);
+    border-radius: 2px;
+    border-top: var(--Sidebar) solid 2px;
+    border-bottom: var(--Accent) solid 1px;
+}
+a {
+    color: rgb(232, 157, 46);
+    text-decoration: dotted;
+}
+
+/* =================================================================================================== */
+
 /* MOBILE DISPLAY */
 
 @media(max-width: 800px) {
@@ -278,48 +303,38 @@ main h1{
     }
 
     main {
-        width: calc(100vw - 30px);
-        max-width:calc(100vw - 30px);
-        display: grid;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 2 * var(--TBarHeight));
         grid-template-columns: 100%;
         justify-items: left;
         overflow-x: hidden;
         padding: 10px;
     }
 
-    main::after {
-        height: 70px;
-        content: '';
-        width: 100%;
-        clear: both;
-        display: block;
-        background-color: var(--Content);
-    }
-
     img {
         max-width: 100%;
         height: auto;
-        /* margin-top: 5px; */
     }
 
-    nav {
+    header {
         display: flex;
         justify-content: center;
     }
-    nav > div:last-of-type {
+    header > nav:last-of-type {
         display: none;
         
     }
 
-    nav > div:first-of-type {
+    header > nav:first-of-type {
         position: fixed;
-        bottom: 0px;
+        bottom: 0;
         display: flex;
         font-size: 2rem;
         justify-content: center;
         width: 100vw;
         padding: 10px;
         background-color: var(--Sidebar);
+        border-top: 2px solid var(--Background);
     }
     nav > div {
         width: 20%;
@@ -329,11 +344,23 @@ main h1{
         border-left: none;
         border-bottom: 5px solid var(--Accent);
     }
-    nav > span {
+    .center-buttons{
         width: 100%;
     }
-    input {
+    input{
         width: 100%;
         font-size: 2rem;
+    }
+    [lr]{
+        float: none;
+        clear: both;
+    }
+    table {
+        clear: both;
+        width: 100%;
+    }
+
+    .info{
+        width: fit-content;
     }
 }

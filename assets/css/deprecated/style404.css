@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    /* ============================================================================================== */
+    /* DARK MODE */
+    --Sidebar: #101010;
+    --Content: #201f1f;
+    --Blockquote: #1b1b1b;
+    --BlockquoteD: #191919;
+    --Resultsbox: #151515ea;
+    --Background: rgb(32, 32, 32);
+    --Text: whitesmoke;
+    --NavButton: rgb(22, 2, 2);
+    --Highlight: #727272;
+    --Highlight2: #949494;
+    /* --Accent: #e2d326; */
+    --Accent: #990e0e;
+    /* --SbarBorder: rgb(32, 32, 32);
+    --Shadow: rgba(0, 0, 0, 0.226); */
+    /* ============================================================================================= */
+    /* LIGHT MODE */
+    /* --Sidebar: #f7f7f7;
+    --Content: #fbfbfb;
+    --Blockquote: #f5f2f2;
+    --BlockquoteD: #e8e8e8;
+    --Resultsbox: #b2b2b2ea;
+    --Background: rgb(236, 236, 236);
+    --Text: rgb(0, 0, 0);
+    --NavButton: rgb(236, 236, 236);
+    --Highlight: #f0f0f0;
+    --Highlight2: #f1f1f1;
+    --Accent: #e2d326;
+    --SbarBorder: rgb(222, 222, 222);
+    --Shadow: rgba(196, 196, 196, 0.046); */
+    /* ============================================================================================= */
+    --SBarWidth: 320px;
+    --TBarHeight: 50px;
+    overscroll-behavior: none;
+}
+
+body{
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin:0;
+    font-family: "B612 Mono", monospace;
+    font-size: 1.3rem;
+    background-color: var(--Background);
+    color: var(--Text);
+    box-sizing: border-box;
+}
+/* ================================================================================================== */
+
+::-webkit-scrollbar{
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    background-color: var(--Highlight);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--Text);
+    height: 50px;
+}
+
+/* ================================================================================================== */
+/* HEADINGS */
+
+h1{
+    margin: 0;
+    font-family: "Exo 2";
+}
+h2{
+    margin: 0;
+    font-family: "Exo 2";
+    clear:both;
+}
+
+/* ================================================================================================== */
+/* MISC */
+
+a{
+    color: rgb(232, 157, 46);
+    text-decoration: dotted;
+}
+
+/* ================================================================================================= */
+/* NAVIGATION */
+
+nav {
+    max-width: calc(100% - 20px);
+    font-family: "Exo 2";
+    z-index: 3;
+    background-color: var(--TopBar);
+    position: sticky;
+    top: 0;
+    margin-bottom: auto;
+    order: 1;
+    height: var(--TBarHeight);
+    width: 100vw;
+    padding: 10px;
+    border-bottom: 0.1rem solid --Sidebar;
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    box-shadow: 0 5px var(--Shadow);
+    align-items: center;
+}
+
+nav > div , nav > span {
+    display: inline-flex;
+}
+nav button , search {
+    border: none;
+    height: fit-content;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    border-left: 5px solid var(--Accent);
+    margin: 0.2rem;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    font-size: 1.3rem;
+}
+
+nav > div:first-of-type {
+    justify-content: left;
+}
+nav > div:last-of-type {
+    justify-content: right;
+}
+
+nav > span {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+nav > div > button {
+    background-color: var(--TopBarButtons);
+   
+}
+
+button:hover , search:hover {
+    border-left: 5px solid var(--Accent2);
+}
+button:active {
+    border-left: 5px solid var(--TopBar);
+}
+
+/* SEARCH BAR */
+
+search {
+    background-color: var(--SearchBar);
+}
+
+input {
+    font-size: 1.3rem;
+    border:none;
+    background-color: transparent;
+    color: var(--Text);
+}
+
+input:focus, textarea {
+    outline: none !important;
+    color: var(--Accent);
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 35px;
+    width: 30%;
+    padding: 5px;
+    height: fit-content;
+    float: right;
+    clear: right;
+    color: var(--Text);
+    background-color: var(--Resultsbox);
+    list-style-type: none;
+    text-align: left;
+    border: 2px solid var(--ResultsBorder);
+    border-top: none;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#results li:nth-of-type(2n) {
+    background-color: var(--ResultsDark);
+}
+
+.i-testing {
+    display: inline-block;
+    width: 100px;
+}
+
+button.LightDark {
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid var(--LDOne);
+    background-image: linear-gradient(to right, var(--LDOne) 0%, var(--LDOne) 50%, var(--LDTwo) 50%, var(--LDTwo) 100%);
+}
+
+/* ================================================================================================= */
+/* SIDEBAR */
+
+menu {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    background-color: var(--Sidebar);
+    margin-top: 0;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(70px + 0.2vh);
+    flex-basis: calc(var(--SBarWidth) - 00.1rem);
+    order: 2;
+    padding: 10px;
+    height: calc(99.8vh - 90px);
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    border-right: 0.1rem solid var(--SbarBorder);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+menu::-webkit-scrollbar {
+    display: none;
+}
+
+menu li {
+    list-style-type: square;
+}
+menu li::marker {
+    color: var(--A1);
+}
+menu li:nth-of-type(2n) a {
+    color: var(--A2);
+}
+
+menu li li {
+    list-style-type: none;
+}
+
+menu li ul {
+    box-sizing: content-box;
+    padding-left: 5px;
+    border-left: 3px solid var(--A1);
+    list-style-type: none;
+}
+
+/* ================================================================================================== */
+/* CONTENT */
+main{
+    text-align: center;
+    z-index: 1;
+    max-width: 33w;
+    margin-left: auto;
+    margin-right: auto;
+    order: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+main h1{
+    font-size: 8rem;
+}
+
+/* =============================================================================================== */
+/* MOBILE DISPLAY */
+
+@media(max-width: 800px) {
+
+    menu {
+        display: none;
+    }
+
+    main {
+        width: calc(100vw - 30px);
+        max-width:calc(100vw - 30px);
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: left;
+        overflow-x: hidden;
+        padding: 10px;
+    }
+
+    main::after {
+        height: 70px;
+        content: '';
+        width: 100%;
+        clear: both;
+        display: block;
+        background-color: var(--Content);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        /* margin-top: 5px; */
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav > div:last-of-type {
+        display: none;
+        
+    }
+
+    nav > div:first-of-type {
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+        width: 100vw;
+        padding: 10px;
+        background-color: var(--Sidebar);
+    }
+    nav > div {
+        width: 20%;
+        text-align: center;
+        justify-content: center;
+        background-color: var(--Blockquote);
+        border-left: none;
+        border-bottom: 5px solid var(--Accent);
+    }
+    nav > span {
+        width: 100%;
+    }
+    input {
+        width: 100%;
+        font-size: 2rem;
+    }
+}
