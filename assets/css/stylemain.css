@@ -514,10 +514,10 @@ div.highlight{
     width: 100%;
     height: fit-content;
     overflow-x: scroll;
-    padding: 0 0 10px 0;
+    padding: 0 0 0 0;
 }
 .highlight pre{
-    margin: 10px 0 0 0;
+    margin: 5px 0 5px 0;
 }
 
 /* LANGUAGE DECLARATIONS */
