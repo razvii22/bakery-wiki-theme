@@ -229,7 +229,7 @@ menu {
 
 menu > ul {
     padding-top: 10px;
-    height: 50%;
+    min-height: 50%;
     overflow-y: scroll;
     background-color: var(--Sidebar);
     position: sticky;
@@ -372,10 +372,12 @@ table, th, td {
     -webkit-box-sizing: border-box;
 }
 table {
+    display: block;
     overflow-x: scroll;
     font-family: "B612 Mono";
     margin: 1.5rem 0 1.5rem 0;
-    max-width: calc(100vw - var(--SBarWidth) - 10px);
+    max-width: 100%;
+    padding: 5px;
 }
 td {
     background-color: var(--Blockquote);
@@ -436,9 +438,11 @@ blockquote {
 }
 
 blockquote[blame]::after {
+    font-size: 0.9rem;
     content: "- " attr(blame);
     color: var(--Accent);
     margin-left: auto;
+    padding-top: 10px;
 }
 
 blockquote p {
@@ -564,9 +568,14 @@ hr {
     border-top: var(--Sidebar) solid 2px;
     border-bottom: var(--Accent) solid 1px;
 }
+
 a {
     color: rgb(232, 157, 46);
     text-decoration: dotted;
+}
+
+strong {
+    color: var(--Accent);
 }
 
 /* =================================================================================================== */
