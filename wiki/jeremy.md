@@ -1,4 +1,7 @@
-{: accent-dark="#5f0191" }
+---
+accent-dark: "#5f0191"
+image: https://the-yorkshireman.com/wp-content/uploads/2022/12/a35df17f39adbcdcc6d9eaa17c9bba9b.jpg
+---
 
 {% include bakery-wiki/components/charCard.html title="Jeremy" imageURL="https://the-yorkshireman.com/wp-content/uploads/2022/12/a35df17f39adbcdcc6d9eaa17c9bba9b.jpg" table='Pronouns,Knob/Head|Youtube,None|Streams,Most|Socials,Hah.|<strong>Blonde</strong>|Enjoys,Cheese' %}
 
