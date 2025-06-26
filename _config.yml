@@ -8,7 +8,7 @@ description: 'The "Official" theme repository for the Bakery wiki'
 # (mapping) Left side navigation buttons, leave empty to remove them
 navButtons:
   Home: "/"
-  Test Page: "/wiki/testpage.html"
+  Example page: "/wiki/jeremy.html"
 # HACK Github stuff, using jekyll-github-metadata seems wasteful when we're only using a few variables.
 # (string) repo url: user/repo
 github:
