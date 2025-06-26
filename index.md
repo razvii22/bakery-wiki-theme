@@ -1,8 +1,4 @@
 {% include bakery-wiki/components/charCard.html title="UwU" imageURL="https://yt3.ggpht.com/IXnjZR-4D2JX8HjIwZloE088y2taeis8YFpR-NFaP2N_6P7z4JI3cc6SEg-N-iOGAeyP3zanFw=s600-c-k-c0x00ffffff-no-rj-rp-mo" table='uwu|What|Youtube|Streams,None|Socials,None|uwu,owo,uvu|check,this,out!,neat.|<img src="https://s3-eu-west-2.amazonaws.com/photos.thearticle.com/app/production/articles/2839/cover_desktop_the-rise-and-fall-of-the-fax-machine.jpg" title="Spooky." alt="Even image alts work!">' %}
-
-[This is a link](jeremy.md)
-
-[meow](https://www.youtube.com/watch?v=kjCdGWx9dwU)
 # Text blocks
 ## Links
 
