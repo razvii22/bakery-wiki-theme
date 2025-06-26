@@ -7,7 +7,7 @@
                 $('a').each(function () {
                     // avoid red link for external urls
                     if (this.hostname != window.location.hostname) {
-                        if ($(this).parents('#git-wiki-content').length > 0)
+                        if ($(this).parents('main').length > 0)
                             $(this).addClass("external-link");
                         return;
                     }

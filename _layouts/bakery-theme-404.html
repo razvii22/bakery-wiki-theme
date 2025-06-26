@@ -10,6 +10,16 @@
             <h1>404</h1>
             <h2>that isn't real</h2>
             <p>you must be hallucinating</p>
+            {% if site.disable_edit != true %}
+            <a id="edit_url" href="">Create it?</a>
+            <script type="text/javascript">
+                var filename = window.location.pathname.split('/').pop();
+                if (!filename.endsWith(".md"))
+                    filename += ".md";
+                var url = "{{ site.github.repository_url }}/new/{{site.git_branch | escape}}?filename={{ site.wiki_folder | default: 'wiki' }}/" + filename;
+                edit_url.href = "https://www.github.com/" + url;
+            </script>
+            {% endif %}
         </main>
     </body>
 </html>
