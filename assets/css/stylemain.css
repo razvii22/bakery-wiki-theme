@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
 :root {
     overscroll-behavior: none;
-    --accent-light: #0044cc; /* fallback or default for light mode */
-    --accent-dark: #6699ff;  /* fallback or default for dark mode */
+    --accent-light: #0044cc;
+    /* fallback or default for light mode */
+    --accent-dark: #6699ff;
+    /* fallback or default for dark mode */
     --SBarWidth: 320px;
     --TBarHeight: 54px;
     --A1: rgb(232, 157, 46);
     --A2: rgb(232, 192, 46);
-    /* ============================================================================================== */
-    /* DARK MODE */
+    /*#region Dark mode */
     --LDOne: #FFFFFF;
     --LDTwo: #000000;
     --Sidebar: #101010;
@@ -34,6 +36,7 @@
     --SbarBorder: rgb(32, 32, 32);
     --Shadow: rgba(0, 0, 0, 0.226);
     --CodeBlock: rgb(7, 8, 46);
+    /*#endregion Dark mode */
 }
 
 * {
@@ -41,9 +44,8 @@
     scroll-behavior: smooth;
 }
 
+/*#region  Light mode*/
 [data-theme="light"] {
-    /* ============================================================================================= */
-    /* LIGHT MODE */
     --Accent: var(--accent-light);
     --Accent2: var(--accent-dark);
     --LDOne: #000000;
@@ -62,16 +64,18 @@
     --Background: rgb(236, 236, 236);
     --Text: rgb(0, 0, 0);
     --NavButton: rgb(236, 236, 236);
-    --CodeBorder:var(--Text);
+    --CodeBorder: var(--Text);
     --Highlight: #aeaeae;
     --Highlight2: #ece9e9;
     --Highlight3: var(--Highlight2);
     --SbarBorder: rgb(236, 236, 236);
     --Shadow: rgba(184, 184, 184, 0.094);
     --CodeBlock: rgb(40, 45, 116);
-    /* ============================================================================================= */
 }
 
+/*#endregion Light mode*/
+
+/*#region Body*/
 body {
     --Accent: var(--accent-dark);
     --Accent2: var(--accent-light);
@@ -79,17 +83,18 @@ body {
     flex-flow: row;
     align-items: stretch;
     flex-wrap: wrap;
-    margin:0;
+    margin: 0;
     font-family: "Titillium Web";
-    word-spacing: ;
+    word-spacing: normal;
     font-size: 1rem;
     background-color: var(--Background);
     color: var(--Text);
     box-sizing: border-box;
 }
 
-/* ================================================================================================== */
-/* NAVIGATION */
+/*#endregion Body*/
+
+/*#region Navigation*/
 
 header {
     width: 100%;
@@ -109,11 +114,13 @@ header {
     align-items: center;
 }
 
-header > nav , header > span {
+header>nav,
+header>span {
     display: inline-flex;
 }
 
-header button , search {
+header button,
+search {
     border: none;
     height: fit-content;
     text-overflow: clip;
@@ -125,45 +132,50 @@ header button , search {
     font-size: 1.3rem;
 }
 
-header > nav:first-of-type {
+header>nav:first-of-type {
     justify-content: left;
 }
-header > nav:last-of-type {
+
+header>nav:last-of-type {
     justify-content: right;
 }
 
-header > span {
+header>span {
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-header > nav > button {
+header>nav>button {
     background-color: var(--TopBarButtons);
-   
+
 }
 
-button:hover , search:hover {
+button:hover,
+search:hover {
     border-left: 5px solid var(--Accent2);
 }
+
 button:active {
     border-left: 5px solid var(--TopBar);
 }
 
-/* SEARCH BAR */
+/*#endregion Navigation*/
 
+/*#region Search bar*/
 search {
     background-color: var(--SearchBar);
 }
 
 input {
     font-size: 1.3rem;
-    border:none;
+    border: none;
     background-color: transparent;
     color: var(--Text);
 }
 
-input:focus, textarea {
+input:focus,
+textarea {
     outline: none !important;
     color: var(--Accent);
 }
@@ -193,6 +205,9 @@ input:focus, textarea {
     background-color: var(--ResultsDark);
 }
 
+/*#endregion Search bar*/
+
+/*#region LightDark*/
 button.LightDark {
     height: 30px;
     width: 30px;
@@ -207,8 +222,9 @@ button.LightDark {
     background-image: linear-gradient(to right, var(--LDTwo) 0%, var(--LDTwo) 50%, var(--LDOne) 50%, var(--LDOne) 100%);
 }
 
-/* ================================================================================================= */
-/* SIDEBAR */
+/*#endregion LightDark*/
+
+/*#region Sidebar*/
 
 menu {
     height: calc(100vh - var(--TBarHeight));
@@ -229,7 +245,7 @@ menu {
     scrollbar-width: none;
 }
 
-menu > ul {
+menu>ul {
     padding-top: 10px;
     min-height: 50%;
     overflow-y: scroll;
@@ -240,11 +256,11 @@ menu > ul {
     padding-right: 5px;
 }
 
-menu > ul > li {
+menu>ul>li {
     height: fit-content;
 }
 
-menu > *:not(ul) {
+menu>*:not(ul) {
     margin: 0 auto 0 auto;
 }
 
@@ -255,9 +271,11 @@ menu::-webkit-scrollbar {
 menu li {
     list-style-type: square;
 }
+
 menu li::marker {
     color: var(--A1);
 }
+
 menu li:nth-of-type(2n) a {
     color: var(--A2);
 }
@@ -273,6 +291,10 @@ menu li ul {
     list-style-type: none;
 }
 
+/*#endregion Sidebar*/
+
+/*#region Footer*/
+
 footer {
     position: sticky;
     bottom: 0;
@@ -281,8 +303,9 @@ footer {
     width: 100%;
 }
 
-/* ================================================================================================== */
-/* MAIN */
+/*#endregion Footer*/
+
+/*#region Main*/
 
 main {
     width: calc(100vw - var(--SBarWidth) - 10px);
@@ -295,25 +318,25 @@ main {
     overscroll-behavior-y: contain;
 }
 
-main > p {
+main>p {
     margin-top: 2px;
 }
 
-main > header {
+main>header {
     position: sticky;
     top: 0;
 }
 
-/* ================================================================================================== */
+/*#endregion Main*/
 
-body > :not(header, menu, main) {
+body> :not(header, menu, main) {
     order: 2;
     max-width: calc(100vw - (2 * var(--SBarWidth)) - 10px);
     margin: 0 calc(var(--SBarWidth) + 5px) 0 calc(var(--SBarWidth) + 5px);
     padding: 5px;
 }
 
-/* SCROLLBAR */
+/*#region Scrollbar*/
 
 ::-webkit-scrollbar {
     z-index: 1;
@@ -335,17 +358,18 @@ body > :not(header, menu, main) {
     background-color: var(--Text);
 }
 
-/* ================================================================================================== */
-/* HEADINGS */
+/*#endregion Sidebar*/
 
-h1{
+/*#region Headings*/
+
+h1 {
     margin: 0;
     font-family: "Exo 2";
     width: 100%;
     border-bottom: 2px solid var(--Accent);
 }
 
-h2{
+h2 {
     margin: 0;
     font-family: "Exo 2";
 }
@@ -371,14 +395,18 @@ h6 {
     font-family: "Exo 2";
 }
 
-/* ========================================================================================================== */
-/* TABLES */
+/*#endregion Headings*/
 
-table, th, td {
+/*#region Tables*/
+
+table,
+th,
+td {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
 table {
     display: block;
     overflow-x: scroll;
@@ -387,6 +415,7 @@ table {
     max-width: 100%;
     padding: 5px;
 }
+
 td {
     background-color: var(--Blockquote);
     padding: 10px;
@@ -395,14 +424,18 @@ td {
     border-right: 3px solid var(--Accent);
     text-align: center;
 }
-th, caption {
+
+th,
+caption {
     font-weight: 700;
     background-color: var(--BlockquoteD);
     padding: 0.5rem 20px 0.5rem 20px;
     text-align: center;
 }
 
-/* INFO TABLES */
+/*#endregion Tables*/
+
+/*#region Info tables*/
 
 .info {
     width: fit-content;
@@ -431,8 +464,9 @@ th, caption {
     object-fit: scale-down;
 }
 
-/* ================================================================================================== */
-/* BLOCKQUOTES */
+/*#endregion Info tables*/
+
+/*#region Blockquotes*/
 
 blockquote {
     background-color: var(--Blockquote);
@@ -464,26 +498,28 @@ blockquote p {
     background-image: linear-gradient(to right, var(--Gradient), transparent);
 }
 
-/* ================================================================================================= */
+/*#endregion Blockquotes*/
 
+/*#region Images*/
 
-/* IMAGES */
-
-img{
+img {
     margin-top: 2px;
     max-height: 100%;
     max-width: 100%;
 }
-[lr="left"]{
+
+[lr="left"] {
     float: left;
     margin: 5px;
 }
-[lr="right"]{
+
+[lr="right"] {
     float: right;
     margin: 5px;
     margin-left: 19px;
 }
-[lr]::after{
+
+[lr]::after {
     height: 0;
     content: '';
     width: 100%;
@@ -491,16 +527,17 @@ img{
     display: block;
 }
 
-/* ================================================================================================= */
-/* CODE */
+/*#endregion Images*/
 
-/* BASIC CODE BLOCK */
+/*#region Code Blocks*/
 
-code{
+/*#region Basic*/
+
+code {
     font-family: "Space Mono";
 }
 
-p code{
+p code {
     height: fit-content;
     width: fit-content;
     color: var(--Highlight3);
@@ -510,9 +547,12 @@ p code{
     font-size: 0.8em;
 }
 
-/* HIGHLIGHTED CODE BLOCKS */
+/*#endregion Basic*/
 
-figure.highlight, figure.highlighter-rouge{
+/*#region Highlighted*/
+
+figure.highlight,
+figure.highlighter-rouge {
     width: 100%;
     height: fit-content;
     display: flex;
@@ -528,18 +568,23 @@ figure.highlight, figure.highlighter-rouge{
     color: var(--Highlight2);
     font-size: 0.9rem;
 }
-div.highlight{
+
+div.highlight {
     width: 100%;
     height: fit-content;
     overflow-x: scroll;
     padding: 0 0 0 0;
 }
-.highlight pre{
+
+.highlight pre {
     margin: 5px 0 5px 0;
 }
 
-/* LANGUAGE DECLARATIONS */
-.highlight figcaption, .highlighter-rouge figcaption{
+/*#endregion Highlighted*/
+
+/*#region Language declarations */
+.highlight figcaption,
+.highlighter-rouge figcaption {
     position: absolute;
     right: 0;
     top: 0;
@@ -550,15 +595,17 @@ div.highlight{
     color: var(--Highlight);
 }
 
-/* CODE BLCOKS WITH LINE NUMBERING */
+/*#endregion Language declarations */
 
-table.rouge-table{
+/*#region Code blocks with line numbering */
+table.rouge-table {
     width: 100%;
     border: none;
     background-color: transparent;
     margin: 0;
     padding: 0;
 }
+
 .rouge-table td {
     border: none;
     background-color: transparent;
@@ -573,14 +620,16 @@ td.gutter {
     border-right: 2px solid var(--Highlight);
 }
 
-/* ================================================================================================== */
-/* MISC */
+/*#endregion Code blocks with line numbering*/
+/*#endregion Code blocks*/
+
+/*#region Misc*/
 
 hr {
     color: var(--Sidebar);
     border-radius: 2px;
     border-top: var(--Sidebar) solid 2px;
-    border-bottom:1px solid var(--Highlight2);
+    border-bottom: 1px solid var(--Highlight2);
 }
 
 a {
@@ -592,9 +641,9 @@ strong {
     color: var(--Accent);
 }
 
-/* =================================================================================================== */
+/*#endregion Misc*/
 
-/* MOBILE DISPLAY */
+/*#region Mobile display*/
 
 @media(max-width: 800px) {
 
@@ -620,12 +669,13 @@ strong {
         display: flex;
         justify-content: center;
     }
-    header > nav:last-of-type {
+
+    header>nav:last-of-type {
         display: none;
-        
+
     }
 
-    header > nav:first-of-type {
+    header>nav:first-of-type {
         position: fixed;
         bottom: 0;
         display: flex;
@@ -636,7 +686,8 @@ strong {
         background-color: var(--Sidebar);
         border-top: 2px solid var(--Background);
     }
-    nav > div {
+
+    nav>div {
         width: 20%;
         text-align: center;
         justify-content: center;
@@ -644,23 +695,29 @@ strong {
         border-left: none;
         border-bottom: 5px solid var(--Accent);
     }
-    .center-buttons{
+
+    .center-buttons {
         width: 100%;
     }
-    input{
+
+    input {
         width: 100%;
         font-size: 2rem;
     }
-    [lr]{
+
+    [lr] {
         float: none;
         clear: both;
     }
+
     table {
         clear: both;
         width: 100%;
     }
 
-    .info{
+    .info {
         width: fit-content;
     }
 }
+
+/*#endregion Mobile display*/
