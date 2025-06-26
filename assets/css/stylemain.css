@@ -501,7 +501,6 @@ blockquote p {
 /*#endregion Blockquotes*/
 
 /*#region Images*/
-
 img {
     margin-top: 2px;
     max-height: 100%;
@@ -528,6 +527,17 @@ img {
 }
 
 /*#endregion Images*/
+
+/*#region Links */
+.external-link {
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-image: url("../images/external-link-ltr-icon.png");
+    background-image: linear-gradient(transparent, transparent), url("../images/external.svg");
+    padding-right: 13px;
+}
+
+/*#endregion Links*/
 
 /*#region Code Blocks*/
 
