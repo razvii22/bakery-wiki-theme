@@ -86,7 +86,7 @@ body {
     align-items: stretch;
     flex-wrap: wrap;
     margin: 0;
-    font-family: "Titillium Web";
+    font-family: "b612 mono";
     word-spacing: normal;
     font-size: 1rem;
     background-color: var(--Background);
@@ -322,6 +322,7 @@ main {
 
 main>p {
     margin-top: 2px;
+    font-family: "titillium web";
 }
 
 main>header {
@@ -412,7 +413,7 @@ td {
 table {
     display: block;
     overflow-x: scroll;
-    font-family: "titillium web";
+    font-family: "b612 mono";
     margin: 1.5rem 0 1.5rem 0;
     max-width: 100%;
     padding: 5px;
@@ -441,7 +442,7 @@ caption {
 .info {
     width: fit-content;
     max-width: 320px;
-    font-family: "titillium web";
+    font-family: "b612 mono";
     border-spacing: 0;
     background-color: var(--Blockquote);
     margin: 0 2px 0 2px;
