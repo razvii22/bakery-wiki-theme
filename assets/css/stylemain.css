@@ -441,7 +441,7 @@ caption {
 .info {
     width: fit-content;
     max-width: 320px;
-    font-family: "titilium web";
+    font-family: "titillium web";
     border-spacing: 0;
     background-color: var(--Blockquote);
     margin: 0 2px 0 2px;
@@ -452,7 +452,6 @@ caption {
 .info td {
     background-color: var(--Blockquote);
     padding: 2px;
-    font-style: italic;
     border-left: 3px solid var(--Accent);
     border-right: 3px solid var(--Accent);
     text-align: center;
