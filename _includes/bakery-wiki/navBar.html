@@ -1,13 +1,13 @@
 
 <header>
     <nav>
-        {% for key in site.navButtons %}
+        {%- for key in site.navButtons -%}
         <button>
             <a href={{site.baseurl}}{{ key[1] }}>
                 {{key [0]}}
             </a>
         </button>
-        {% endfor included %}
+        {%- endfor included -%}
     </nav>
     <span>
         <search>
@@ -17,7 +17,7 @@
         <button class="LightDark" data-theme-toggle="">
         </button>
     </span>
-    {% include bakery-wiki/pageActions.html %}
+    {%- include bakery-wiki/pageActions.html -%}
 </header>
 <!-- script pointing to jekyll-search.js -->
 <script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>

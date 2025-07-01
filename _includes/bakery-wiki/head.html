@@ -2,37 +2,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
     <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.png' | relative_url }}">
-    <script defer src="{{ '/assets/js/lightModeToggle.js' | relative_url }}"></script>
-    {% assign pagetitle = page.name | replace: ".md", "" %}
-    {% assign title = pagetitle | append: " - " | append: site.title  | strip_html %}
+
+    {%- assign title = page.name | replace: ".md", "" | append: " - " | append: site.title | strip_html -%}
     <meta property="og:title" content="{{ title | strip_html | strip_newlines | truncate: 160 }}">
+
     <title>{{ title | strip_html | strip_newlines | truncate: 160 }}</title>
 
-    <meta property="og:description" content="{% if page.excerpt %}
+    <meta property="og:description" content="{%- if page.excerpt -%}
         {{ page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}
-      {% else %}
+      {%- else -%}
         {{ site.description | escape }}
-      {% endif %}">
+      {%- endif -%}">
 
-    <meta property="og:url"
-    content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-    <meta property="og:site_name"
-    content="{{site.title}}" />
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+    <meta property="og:site_name" content="{{site.title}}" />
     <meta name="theme-color" content="{{ page.accent-dark | default: "#6699ff"}}">
 
-    {% if page.image %}
+    {%- if page.image -%}
     <meta property="og:image" content="{{page.image | relative_url }}" />
     <meta name="twitter:image" content="{{page.image | relative_url }}" />
-    {% elsif site.logo_url %}
+    {%- elsif site.logo_url -%}
     <meta property="og:image" content="{{ site.logo_url | relative_url }}" />
     <meta name="twitter:image" content="{{ site.logo_url | relative_url }}" />
-    {% endif %}
-    {% if page.embed == "card" %}
+    {%- endif -%}
+    {%- if page.embed == "card" -%}
     <meta name="twitter:card" content="summary_large_image">
-    {% endif %}
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    {%- endif -%}
+    <script defer src="{{ '/assets/js/lightModeToggle.js' | relative_url }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="{{ '/assets/js/checkLinks.js' | relative_url }}"></script>
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/css/stylemain.css">
     <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/css/rouge-highlight.css">

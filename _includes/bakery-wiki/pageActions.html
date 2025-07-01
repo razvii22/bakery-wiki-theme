@@ -1,6 +1,6 @@
 <!-- Partly modified from git-wiki-theme. -->
 
-{% if site.disable_edit != true %}
+{%- if site.disable_edit != true -%}
     <nav>
         <button>
             <a target="_blank" href="https://github.com/{{ site.github.repository_url }}/edit/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">
@@ -28,4 +28,4 @@
             </a>
         </button>
     </nav>
-{% endif %}
+{%- endif -%}
