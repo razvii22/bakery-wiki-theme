@@ -10,8 +10,8 @@
     /* fallback or default for dark mode */
     --SBarWidth: 320px;
     --TBarHeight: 54px;
-    --A1: rgb(232, 157, 46);
-    --A2: rgb(232, 192, 46);
+    --A1: rgb(232, 99, 46);
+    --A2: rgb(232, 145, 46);
     /*#region Dark mode */
     --LDOne: #FFFFFF;
     --LDTwo: #000000;
@@ -50,9 +50,9 @@
     --Accent2: var(--accent-dark);
     --LDOne: #000000;
     --LDTwo: var(--SearchBar);
-    --Sidebar: var(--Content);
-    --Content: #f5f2f2;
-    --TopBar: var(--Background);
+    --Sidebar: #89a7e3;
+    --Content: #eef0f0;
+    --TopBar: rgb(40, 45, 116);
     --TopBarButtons: var(--Background);
     --Blockquote: #f5f2f2;
     --BlockquoteD: #ebebe5;
@@ -61,16 +61,18 @@
     --Resultsbox: #f1f1f1;
     --ResultsDark: #f4f4f4;
     --ResultsBorder: var(--Accent);
-    --Background: rgb(236, 236, 236);
+    --Background: var(--Content);
     --Text: rgb(0, 0, 0);
     --NavButton: rgb(236, 236, 236);
     --CodeBorder: var(--Text);
-    --Highlight: #aeaeae;
+    --Highlight: #2d2d2d;
     --Highlight2: #ece9e9;
     --Highlight3: var(--Highlight2);
     --SbarBorder: rgb(236, 236, 236);
     --Shadow: rgba(184, 184, 184, 0.094);
     --CodeBlock: rgb(40, 45, 116);
+    --A1: rgb(85, 0, 85);
+    --A2: purple;
 }
 
 /*#endregion Light mode*/
@@ -410,7 +412,7 @@ td {
 table {
     display: block;
     overflow-x: scroll;
-    font-family: "titilium web";
+    font-family: "titillium web";
     margin: 1.5rem 0 1.5rem 0;
     max-width: 100%;
     padding: 5px;
@@ -419,7 +421,6 @@ table {
 td {
     background-color: var(--Blockquote);
     padding: 10px;
-    font-style: italic;
     border-left: 3px solid var(--Accent);
     border-right: 3px solid var(--Accent);
     text-align: center;
