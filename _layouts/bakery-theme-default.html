@@ -29,6 +29,9 @@
     </menu>
     {%- endif -%}
     <main>
+        {%- if page.title -%}
+        <h1 id="art-title" >{{page.title}}</h1>
+        {%- endif -%}
         {{ content }}
         {%- assign items = site.html_pages -%}
         {%- for page in items -%}
