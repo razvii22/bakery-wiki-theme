@@ -13,7 +13,7 @@
             {% if site.disable_edit != true %}
             <a id="edit_url" href="">Create it?</a>
             <script type="text/javascript">
-                var filename = window.location.pathname.split('/').pop() || "index";
+                var filename = window.location.pathname.split('/').pop() || "index"; // if we're in a directory path, redirect to index.md
                 if (!filename.endsWith(".md"))
                     filename += ".md";
                 var url = "{{ site.github.repository_url }}/new/{{site.git_branch | escape}}?filename={{ site.wiki_folder | default: 'wiki' }}/" + filename;
