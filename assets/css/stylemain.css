@@ -50,25 +50,25 @@
     --Accent2: var(--accent-dark);
     --LDOne: #000000;
     --LDTwo: var(--SearchBar);
-    --Sidebar: #89a7e3;
-    --Content: #eef0f0;
-    --TopBar: rgb(40, 45, 116);
-    --TopBarButtons: var(--Background);
-    --Blockquote: #f5f2f2;
+    --Sidebar: hsl(from var(--accent-light) h 40 80);
+    --Content: #d2d0d0;
+    --TopBar: hsl(from var(--accent-light) h 70 25);
+    --TopBarButtons: hsl(from var(--TopBar) h s 20);
+    --Blockquote: #eae8e8;
     --BlockquoteD: #ebebe5;
-    --Gradient: #e1e3d8;
+    --Gradient: hsl(from var(--accent-dark) h 95 90);
     --SearchBar: var(--ResultsDark);
     --Resultsbox: #f1f1f1;
     --ResultsDark: #f4f4f4;
     --ResultsBorder: var(--Accent);
-    --Background: var(--Content);
+    --Background: #474847;
     --Text: rgb(0, 0, 0);
-    --NavButton: rgb(236, 236, 236);
+    --NavButton: rgb(141, 144, 146);
     --CodeBorder: var(--Text);
     --Highlight: #2d2d2d;
     --Highlight2: #ece9e9;
     --Highlight3: var(--Highlight2);
-    --SbarBorder: rgb(236, 236, 236);
+    --SbarBorder: var(--Background);
     --Shadow: rgba(184, 184, 184, 0.094);
     --CodeBlock: rgb(40, 45, 116);
     --A1: rgb(85, 0, 85);
@@ -116,6 +116,11 @@ header {
     align-items: center;
 }
 
+[data-theme="light"] header {
+    border-bottom: none;
+    box-shadow: none;
+}
+
 header>nav,
 header>span {
     display: inline-flex;
@@ -152,6 +157,10 @@ header>nav>button {
     background-color: var(--TopBarButtons);
 
 }
+/* 
+[data-theme="light"] header>nav>button {
+    background-color: transparent;
+} */
 
 button:hover,
 search:hover {
@@ -247,6 +256,14 @@ menu {
     scrollbar-width: none;
 }
 
+[data-theme="light"] menu {
+    /* border-right: 5px solid var(--SbarBorder); */
+    border-image: linear-gradient(to bottom right, hsl(from var(--accent-dark) h s 95) 50%, var(--Highlight) 50%) 1;
+    border-width: 4px;
+    border-style: solid;
+    border-top: none;
+}
+
 menu>ul {
     padding-top: 10px;
     min-height: 50%;
@@ -256,6 +273,15 @@ menu>ul {
     top: 0;
     border-bottom: 2px solid var(--Highlight);
     padding-right: 5px;
+}
+/* 
+[data-theme="light"] menu {
+    padding: 5px;
+} */
+
+[data-theme="light"] menu>ul {
+    border-bottom: none;
+    /* text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.8), -0.5px -0.5px rgba(0, 0, 0, 0.8); */
 }
 
 menu>ul>li {
@@ -272,10 +298,15 @@ menu::-webkit-scrollbar {
 
 menu li {
     list-style-type: square;
+    color: var(--A1);
 }
 
 menu li::marker {
     color: var(--A1);
+}
+
+menu li a{
+    color: inherit;
 }
 
 menu li:nth-of-type(2n) a {
@@ -310,24 +341,43 @@ footer {
 /*#region Main*/
 
 main {
+    box-sizing: border-box;
     width: calc(100vw - var(--SBarWidth) - 10px);
     margin: var(--TBarHeight) auto 0 auto;
     background-color: var(--Content);
-    padding: 0 5px 0 5px;
+    padding: 0 5px 0 10px;
     border-top: 2px solid var(--Background);
     height: calc(100vh - var(--TBarHeight));
     overflow-y: scroll;
     overscroll-behavior-y: contain;
 }
 
-main>p {
+main > :not(blockquote, table, code) {
     margin-top: 2px;
+    font-size: 1.1rem;
     font-family: "titillium web";
 }
 
 main>header {
     position: sticky;
     top: 0;
+}
+
+[data-theme="light"] main {
+    margin: calc(var(--TBarHeight) + 5px) 0 0 0;
+    height: calc(100vh - var(--TBarHeight) - 5px);;
+    border-image: linear-gradient(to bottom right, hsl(from var(--accent-dark) h s 95) 50%, var(--Highlight) 50%) 1;
+    border-width: 4px;
+    border-style: solid;
+    /* box-shadow: inset 4px 4px hsl(from var(--accent-dark) h s 95), inset -4px -4px var(--Highlight);
+    padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+[data-theme="light"] main a{
+    /* text-shadow: 1px -1px var(--Highlight), 1px 1px var(--Highlight), -1px 1px var(--Highlight), -1px -1px var(--Highlight); */
+    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke-color: black;
 }
 
 /*#endregion Main*/
@@ -368,7 +418,7 @@ body> :not(header, menu, main) {
 h1 {
     margin: 0;
     font-family: "Exo 2";
-    width: 100%;
+    width: 50%;
     border-bottom: 2px solid var(--Accent);
 }
 
@@ -471,6 +521,7 @@ caption {
 
 blockquote {
     background-color: var(--Blockquote);
+    font-family: "b612 mono";
     font-style: italic;
     padding: 10px;
     border-left: 3px solid var(--Accent);
@@ -604,6 +655,10 @@ div.highlight {
     text-align: right;
     font-size: 0.9rem;
     color: var(--Highlight);
+}
+
+.highlight figcaption, .highlighter-rouge figcaption {
+    color: var(--Highlight2);
 }
 
 /*#endregion Language declarations */
