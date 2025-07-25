@@ -216,7 +216,7 @@ footer {
 /* MAIN */
 
 main {
-    text-align: center;
+    text-align: center !important;
     width: calc(100vw - var(--SBarWidth) - 10px);
     margin: var(--TBarHeight) auto 0 auto;
     background-color: var(--Content);
@@ -225,6 +225,7 @@ main {
     height: calc(100vh - var(--TBarHeight));
     overflow-y: scroll;
     overscroll-behavior-y: contain;
+    font-family: "B612 mono" !important;
 }
 
 main > header {
@@ -267,9 +268,9 @@ body > :not(header, menu, main) {
 /* HEADINGS */
 
 h1 {
-    margin: 0;
-    font-family: "Exo 2";
-    font-size: 10rem;
+    margin: 0 !important;
+    font-family: "Exo 2" !important;
+    font-size: 10rem !important;
 }
 
 h2 {
