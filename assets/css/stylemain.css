@@ -352,7 +352,7 @@ main {
     overscroll-behavior-y: contain;
 }
 
-main > :not(blockquote, table, code) {
+main > :not(blockquote, table, code, h1, h2, h3, h4, h5, h6) {
     margin-top: 2px;
     font-size: 1.1rem;
     font-family: "titillium web";
