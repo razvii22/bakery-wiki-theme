@@ -233,6 +233,8 @@ main > header {
     top: 0;
 }
 
+
+
 /* ================================================================================================== */
 
 body > :not(header, menu, main) {
@@ -268,9 +270,10 @@ body > :not(header, menu, main) {
 /* HEADINGS */
 
 h1 {
-    margin: 0 !important;
+    margin: 0;
     font-family: "Exo 2" !important;
     font-size: 10rem !important;
+    width: 100% !important;
 }
 
 h2 {
