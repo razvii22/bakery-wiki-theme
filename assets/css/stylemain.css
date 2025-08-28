@@ -342,7 +342,6 @@ footer {
 
 main {
     box-sizing: border-box;
-    font-size: 1.2rem;
     width: calc(100vw - var(--SBarWidth) - 10px);
     margin: var(--TBarHeight) auto 0 auto;
     background-color: var(--Content);
@@ -356,6 +355,7 @@ main {
 main > :not(blockquote, table, code, h1, h2, h3, h4, h5, h6) {
     margin-top: 2px;
     font-family: "titillium web";
+    font-size: 1.1rem;
 }
 
 main>header {
