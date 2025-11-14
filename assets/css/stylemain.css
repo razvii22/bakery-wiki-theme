@@ -197,6 +197,13 @@ textarea {
     color: var(--Accent);
 }
 
+input[type="checkbox"] {
+    background-color: var(--A1);
+    color: var(--A1);
+    width: 0.9em;
+    height: 0.9em;
+}
+
 #results {
     display: flex;
     flex-direction: column;
@@ -781,7 +788,6 @@ strong {
     }
 
     input {
-        width: 100%;
         font-size: 2rem;
     }
 
