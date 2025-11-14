@@ -36,6 +36,7 @@
     --SbarBorder: rgb(32, 32, 32);
     --Shadow: rgba(0, 0, 0, 0.226);
     --CodeBlock: rgb(7, 8, 46);
+    --Link: rgb(232, 157, 46);
     /*#endregion Dark mode */
 }
 
@@ -73,6 +74,7 @@
     --CodeBlock: rgb(40, 45, 116);
     --A1: rgb(85, 0, 85);
     --A2: purple;
+    --Link: rgb(55, 45, 194);
 }
 
 /*#endregion Light mode*/
@@ -119,6 +121,10 @@ header {
 [data-theme="light"] header {
     border-bottom: none;
     box-shadow: none;
+}
+
+[data-theme="light"] nav a{
+    color: rgb(232, 157, 46);
 }
 
 header>nav,
@@ -365,7 +371,7 @@ main>header {
 
 [data-theme="light"] main {
     margin: calc(var(--TBarHeight) + 5px) 0 0 0 !important;
-    height: calc(100vh - 2 * var(--TBarHeight) - 5px);
+    height: calc(100vh - var(--TBarHeight) - 5px);
     border-image: linear-gradient(to bottom right, hsl(from var(--accent-dark) h s 95) 50%, var(--Highlight) 50%) 1;
     border-width: 4px;
     border-style: solid;
@@ -693,12 +699,8 @@ hr {
 }
 
 a {
-    color: rgb(232, 157, 46);
+    color: var(--Link);
     text-decoration: dotted;
-}
-
-a [data-theme="light"] {
-    color: rgb(193, 126, 25);
 }
 
 strong {
@@ -720,7 +722,7 @@ strong {
 
     main {
         width: calc(100vw - 20px);
-        height: calc(100vh - 2 * var(--TBarHeight));
+        height: calc(100vh - 2 * var(--TBarHeight)) !important;
         grid-template-columns: 100%;
         justify-items: left;
         overflow-x: hidden;
