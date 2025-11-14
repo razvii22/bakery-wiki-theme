@@ -198,8 +198,6 @@ textarea {
 }
 
 input[type="checkbox"] {
-    background-color: var(--A1);
-    color: var(--A1);
     width: 0.9em;
     height: 0.9em;
 }
