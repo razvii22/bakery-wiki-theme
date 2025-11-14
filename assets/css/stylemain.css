@@ -364,20 +364,14 @@ main>header {
 }
 
 [data-theme="light"] main {
-    margin: calc(var(--TBarHeight) + 5px) 0 0 0;
-    height: calc(100vh - var(--TBarHeight) - 5px);;
+    margin: calc(var(--TBarHeight) + 5px) 0 0 0 !important;
+    height: calc(100vh - 2 * var(--TBarHeight) - 5px);
     border-image: linear-gradient(to bottom right, hsl(from var(--accent-dark) h s 95) 50%, var(--Highlight) 50%) 1;
     border-width: 4px;
     border-style: solid;
     /* box-shadow: inset 4px 4px hsl(from var(--accent-dark) h s 95), inset -4px -4px var(--Highlight);
     padding-top: 5px;
     padding-bottom: 5px; */
-}
-
-[data-theme="light"] main a{
-    /* text-shadow: 1px -1px var(--Highlight), 1px 1px var(--Highlight), -1px 1px var(--Highlight), -1px -1px var(--Highlight); */
-    -webkit-text-stroke: 0.5px;
-    -webkit-text-stroke-color: black;
 }
 
 /*#endregion Main*/
@@ -701,6 +695,10 @@ hr {
 a {
     color: rgb(232, 157, 46);
     text-decoration: dotted;
+}
+
+a [data-theme="light"] {
+    color: rgb(193, 126, 25);
 }
 
 strong {
