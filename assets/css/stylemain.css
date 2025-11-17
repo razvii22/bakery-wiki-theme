@@ -535,7 +535,6 @@ blockquote {
     flex-direction: column;
     margin: 10px 0 10px 0;
     word-wrap: break-word;
-    word-break: break-all;
 }
 
 blockquote[blame]::after {
