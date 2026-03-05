@@ -1,0 +1,27 @@
+{%- assign title = page.title-%}
+{%- assign lr = page.lr | default: "right" -%}
+{%- assign imageURL = page.image | default:
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfpbNRYOrK9HJpurmGakWEIv_zeu25-fvBug&s" -%}
+<table class="info" lr="{{lr}}">
+    <tr>
+        <th colspan="100%">{{title}}</th>
+    </tr>
+    <tr>
+        <td colspan="100%"><img src="{{imageURL}}" alt=""></td>
+    </tr>
+    {%- for row in page.infoCard -%}
+    <tr>
+        {%- assign colspan = 100 | divided_by: row.size -%}
+        {%- if row.first[0] -%}
+            {%- for item in row -%}
+                <td colspan="50%">{{item[0]}}</td>
+                <td colspan="50%">{{item[1]}}</td>
+            {%- endfor -%}
+        {%- else -%}
+            {%- for column in row -%}
+                <td colspan="{{colspan}}%">{{column}}</td>
+            {%- endfor -%}
+        {%- endif -%}
+    </tr>
+    {%- endfor -%}
+</table>
