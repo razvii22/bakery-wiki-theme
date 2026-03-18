@@ -10,6 +10,8 @@
 
 [This is a missing local link](/wiki/meow.md)
 
+[This is a secret "dark" link (spooky)](https://fudrehcs-document-archive.neocities.org/ammended){:.dark}
+
 ## Quote blocks
 ### Markdown
 > This is a simple one line quote written in markdown

@@ -709,6 +709,17 @@ a {
     text-decoration: dotted;
 }
 
+.dark {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.dark::first-letter {
+    font-style: italic !important;
+    /* font-weight: bold !important; */
+}
+
 strong {
     color: var(--Accent);
 }
