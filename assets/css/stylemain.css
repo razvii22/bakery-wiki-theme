@@ -710,7 +710,7 @@ a {
 }
 
 .dark {
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: inherit;
 }
