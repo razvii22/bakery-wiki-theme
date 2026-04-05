@@ -71,7 +71,7 @@
     --Highlight3: var(--Highlight2);
     --SbarBorder: var(--Background);
     --Shadow: rgba(184, 184, 184, 0.094);
-    --CodeBlock: rgb(40, 45, 116);
+    /* --CodeBlock: rgb(18, 21, 67); */
     --A1: rgb(85, 0, 85);
     --A2: purple;
     --Link: rgb(55, 45, 194);
@@ -340,11 +340,14 @@ menu li ul {
 /*#region Footer*/
 
 footer {
+    z-index: 10;
+    width: calc(100vw - var(--SBarWidth));
     position: sticky;
     bottom: 0;
     background-color: var(--TopBar);
     border-top: 2px solid var(--Highlight);
-    width: 100%;
+    margin-left: auto;
+    padding: 5px;
 }
 
 /*#endregion Footer*/
@@ -387,7 +390,7 @@ main>header {
 
 /*#endregion Main*/
 
-body> :not(header, menu, main) {
+body> :not(header, menu, main, footer) {
     order: 2;
     max-width: calc(100vw - (2 * var(--SBarWidth)) - 10px);
     margin: 0 calc(var(--SBarWidth) + 5px) 0 calc(var(--SBarWidth) + 5px);
@@ -713,6 +716,16 @@ strong {
     color: var(--Accent);
 }
 
+#playerContainer {
+    background-color: var(--CodeBlock);
+    color: var(--Highlight2);
+}
+
+#radioPlayPause {
+    background: none;
+    border: none;
+    color: var(--Highlight3);
+}
 /*#endregion Misc*/
 
 /*#region Mobile display*/

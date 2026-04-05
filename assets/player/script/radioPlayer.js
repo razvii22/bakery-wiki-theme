@@ -1,17 +1,12 @@
 const player = document.getElementById("player"),
-statusXSL = "http://127.0.0.1:8000/status-json.xsl",
+button = document.getElementById("radioPlayPause"),
+marquee = document.getElementById("radioPlayerTitle"),
+timecode = document.getElementById("radioPlayerTimecode"),
+ppBtton = document.getElementById("radioPlayPause"),
+iceStatusXSL = "http://127.0.0.1:8000/status-json.xsl",
 icecastSRC = "http://127.0.0.1:8000/butt",
 radioCo = "https://public.radio.co/api/v2/s89cce5709/track/current",
 radioCoSRC = "https://streaming.radio.co/s89cce5709/listen";
-
-// async function getStats(url) {
-//     let data = await fetch(url, {
-//         method: 'GET'
-//     });
-//     console.log(data);
-//     let jason = await JSON.stringify(data.json());
-//     console.log(jason);    
-// };
 
 function fetchStats(url1, url2) {
     console.log("Fetching source from Icecast.")
@@ -36,6 +31,13 @@ function fetchStats(url1, url2) {
             console.log("Changing player source to Icecast.")
             player.src = icecastSRC;
         };
+        let startTime = new Date(source.stream_start);
+        console.log(startTime);
+        let currentTime = new Date(),
+        deltaTime = currentTime.getTime() - startTime.getTime(),
+        timecodeVal = new Date(deltaTime);
+        timecode.innerHTML = `${timecodeVal.getHours()}:${timecodeVal.getMinutes()}:${timecodeVal.getSeconds()}`;
+        marquee.innerText = source.playlist.trackList[source.playlist.trackList.length-1].title;
         console.log("5");
         return source;
     })
@@ -73,4 +75,22 @@ function fetchStats(url1, url2) {
             return e2;
         });
     })
-}
+};
+
+function playPause(player, button) {
+    const isPlaying = !player.paused;
+    console.log(isPlaying);
+    if (isPlaying) {
+        player.pause();
+        console.log("pause");
+        button.innerHTML = "| &#x23f5 |";
+    } else {
+        player.play();
+        console.log("play");
+        button.innerHTML = "| &#x23f8  |";
+    }
+};
+
+setInterval( ()=> {
+    fetchStats(iceStatusXSL, radioCoSRC);
+}, 200)

@@ -108,6 +108,16 @@
         </details>
     </a>
 </main>
+<footer>
+    <section id="playerContainer">
+        <audio id="player" src="placeholder"></audio>
+        <code>
+            <button id="radioPlayPause" onclick="playPause(player, button);">| &#x23f5 |</button>
+            <span id="radioPlayerTitle">Placeholder Title</span>
+            <strong class="highlight" id="radioPlayerTimecode">00:00</strong>
+        </code>
+    </section>
+</footer>
   <script type="text/javascript">
     $(document).ready(function () {
         $(document.body).checkLinks("/Bakery-Wiki/404.html,/Bakery-Wiki/wiki/people/brent.html,/Bakery-Wiki/assets/blog/,/Bakery-Wiki/,/Bakery-Wiki/wiki/people/jeremy.html,/Bakery-Wiki/wiki/games/minecraft.html,/Bakery-Wiki/wiki/people/razvii.html,".split(","));
@@ -119,6 +129,7 @@
         window.open(link, '_self');
     }
   </script>
+  <script src="../assets/player/script/radioPlayer.js" type="text/javascript"></script>
   
 
 </body></html>
