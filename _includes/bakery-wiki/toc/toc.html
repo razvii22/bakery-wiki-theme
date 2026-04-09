@@ -1,0 +1,11 @@
+{%- if site.inc_before_toc -%}
+{%- include {{ site.inc_before_toc }} -%}
+{%- endif -%}
+
+{%- assign title = include.title |  default "" -%}
+
+{%- include bakery-wiki/toc/toc-lib.html title=title minHeaders=1 html=content sanitize=true class="SideBar" id="git-wiki-toc" h_min=1 h_max=3 -%}
+
+{%- if site.inc_after_toc -%}
+{%- include {{ site.inc_after_toc }} -%}
+{%- endif -%}
