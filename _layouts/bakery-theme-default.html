@@ -10,7 +10,7 @@
     {%- comment -%} Add the sidebar unless the page has it disabled {%- endcomment -%}
     {%- if page.sidebar != false -%}
     <menu>
-        {%- include bakery-wiki/toc/toc-lib.html title=" " minHeaders=1 html=content sanitize=true class="SideBar" id="git-wiki-toc" h_min=1 h_max=3 -%}
+        {%- include bakery-wiki/toc/toc.html title=" " minHeaders=1 html=content sanitize=true class="SideBar" id="git-wiki-toc" h_min=1 h_max=3 -%}
     </menu>
     {%- endif -%}
     <main>
