@@ -6,7 +6,7 @@
             function () {
                 $('a').each(function () {
                     // avoid red link for external urls
-                    if (this.hostname != window.location.hostname) {
+                    if (this.hostname != window.location.hostname && !$(this).hasClass("dark")) {
                         if ($(this).parents('main').length > 0)
                             $(this).addClass("external-link");
                         return;
