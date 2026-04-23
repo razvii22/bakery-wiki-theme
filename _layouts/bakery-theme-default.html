@@ -24,7 +24,7 @@
     {%- include bakery-wiki/navBar.html -%}
     {%- comment -%} Add the sidebar unless the page has it disabled {%- endcomment -%}
     {%- if page.sidebar != false -%}
-    <menu>
+    <menu id="sideMenu">
         {%- include bakery-wiki/toc/toc-lib.html title=" " minHeaders=1 html=content sanitize=true class="SideBar" id="git-wiki-toc" h_min=1 h_max=3 -%}
     </menu>
     {%- endif -%}
