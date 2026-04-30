@@ -1,16 +1,22 @@
 ---
 accent-dark: "#990000"
 accent-light: "#990000"
+embedImage: https://razvii22.github.io/bakery-wiki/assets/images/pfps/smugFuck.jpg
+embedType: card
 layout: bakery-theme-person
-image: https://razvii22.github.io/bakery-wiki/assets/images/pfps/smugFuck.jpg
-embed: card
+# staticInfoEnabled: false
+info:
+  name: "The Twat"
+  nicknames: ["Raz","Cat","Catman"]
+  pronouns: ["He/Him"]
+  image: "https://razvii22.github.io/bakery-wiki/assets/images/pfps/smugFuck.jpg"
 infoCard:
-    - Occupation: "3D designer"
-    - ["stuff<hr>uwu","a<hr>a"]
-    - Hobbies: "Managing twitch<hr>Complaining"
-    - ["<img src='https://razvii22.github.io/bakery-wiki/assets/images/pfps/smugFuck.jpg'>"]
-    - Occupation: "a"
----  
+  - Occupation: "3D designer"
+  - ["stuff<hr>uwu","a<hr>a", "meow"]
+  - Hobbies: "Managing twitch<hr>Complaining"
+  - ["<img src='https://razvii22.github.io/bakery-wiki/assets/images/pfps/smugFuck.jpg'>"]
+  - Occupation: "a"
+---
 
 ## Links
 
