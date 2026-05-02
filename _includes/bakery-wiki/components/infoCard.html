@@ -24,7 +24,7 @@
     {% if nicknames %}
       <tr>
         <td colspan="50%">Nicknames:</td>
-        <td>
+        <td colspan="50%">
           {% for nick in nicknames %}
             {{nick}}<br>
           {% endfor %}
@@ -34,7 +34,7 @@
     {% if pronouns %}
       <tr>
         <td colspan="50%">Pronouns:</td>
-        <td>
+        <td colspan="50%">
           {% for pron in pronouns %}
             {{pron}}<br>
           {% endfor %}
@@ -47,7 +47,7 @@
       {%- assign colspan = 100 | divided_by: row.size -%}
       {%- if row.first[0] -%}
           {%- for item in row -%}
-              <td colspan="50%">{{item[0]}}</td>
+              <td colspan="50%">{{item[0]}}:</td>
               <td colspan="50%">{{item[1]}}</td>
           {%- endfor -%}
       {%- else -%}
