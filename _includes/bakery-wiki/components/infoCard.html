@@ -18,7 +18,7 @@
     {% endif %}
     {% if imageURL %}
       <tr>
-        <td colspan="100%"><img src="{{imageURL}}" alt=""></td>
+        <td colspan="100%"><img src="{{imageURL | relative_url }}" alt=""></td>
       </tr>
     {% endif %}
     {% if nicknames %}
