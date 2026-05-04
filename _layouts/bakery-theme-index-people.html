@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+{%- comment -%}
+
+<head> metadata. {%- endcomment -%}
+  {%- include bakery-wiki/head.html -%}
+
+  {%- comment -%} enable dynamic page accents. {%- endcomment -%}
+  {%- include bakery-wiki/accents.html -%}
+
+<body data-theme>
+  {%- include bakery-wiki/navBar.html -%}
+  {%- comment -%} Add the sidebar unless the page has it disabled {%- endcomment -%}
+  {%- if page.sidebar != false -%}
+  <menu id="sideMenu">
+    {%- include bakery-wiki/toc/toc.html title=" " minHeaders=1 html=content sanitize=true class="SideBar"
+    id="git-wiki-toc" h_min=1 h_max=3 -%}
+  </menu>
+  {%- endif -%}
+  {% if site.inc_before_content %}
+  {% include {{ site.inc_before_content }} %}
+  {% endif %}
+  <main id="main">
+    {% include bakery-wiki/components/breadcrumbs.html%}
+    {%- if page.title -%}
+    <h1 id="art-title">{{page.title}}</h1>
+    {%- endif -%}
+
+    <ul>
+      {% assign current_dir = page.dir %}
+
+      {% for p in site.pages %}
+        {% if p.url != page.url %}
+          {% if p.dir == current_dir and p.name != "index.md" %}
+            {% assign card_title = p.info.name | default: p.title | default: p.name %}
+            {% assign card_image = p.info.image | default: p.image %}
+
+            <div class="person_card">
+              <a href="{{p.url | relative_url}}">{{p.name}}</a>
+              {% if card_image %}
+              <div class="person_card_image_container">
+                <img src="{{card_image | relative_url}}">
+              </div>
+              {% endif %}
+              {% if p.info.pronouns %}
+              <div class="person_card_pronouns_container">
+                <ul class="person_card_pronouns_list">
+                  {% for pronoun in p.info.pronouns %}
+                  <li class="person_card_pronoun">
+                    {{pronoun}}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              {% if p.info.nicknames %}
+              <div class="person_card_nicknames_container">
+                <ul class="person_card_nicknames_list">
+                  {% for nick in p.info.nicknames %}
+                  <li class="person_card_nickname">
+                    {{nick}}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            {%- comment -%} by default path can sometimes not match the directory path, this hopefully fixes that.
+            {%-endcomment -%}
+            {% assign page_path = p.path | relative_url%}
+            {% assign current_dir_path = current_dir | relative_url %}
+            {% if p.dir != current_dir and page_path contains current_dir_path and p.name == "index.md" %}
+            <a href="{{p.url | relative_url}}">{{page.title | default: page.name }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {%- assign items = site.html_pages -%}
+    {%- for page in items -%}
+    {%- assign url = page.url | relative_url -%}
+    {%- assign urls = urls | append: url | append: "," -%}
+    {%- endfor -%}
+  </main>
+  {% if site.inc_after_content %}
+  {% include {{ site.inc_after_content }} %}
+  {% endif %}
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(document.body).checkLinks("{{ urls }}".split(","));
+      console.log("Henwo");
+    });
+  </script>
+</body>
+
+</html>
